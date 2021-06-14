@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CinemaSearcher</string>
+    <string name="first_button">Kotlin button</string>
+</resources>
