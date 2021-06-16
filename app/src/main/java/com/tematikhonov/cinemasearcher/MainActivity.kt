@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.tematikhonov.weather.ui.main.MainFragment
+import com.tematikhonov.cinemasearcher.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

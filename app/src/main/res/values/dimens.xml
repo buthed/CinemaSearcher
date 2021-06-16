@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //Item
+    <dimen name="margin_5_dp">5dp</dimen>
+    <dimen name="margin_15_dp">15dp</dimen>
+    <dimen name="title_of_cinema">20sp</dimen>
+    <dimen name="text_of_cinema">15sp</dimen>
+</resources>
