@@ -1,11 +1,9 @@
-package com.tematikhonov.cinemasearcher.ui.main
+package com.tematikhonov.cinemasearcher.framework.ui.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tematikhonov.cinemasearcher.model.AppState
-import com.tematikhonov.cinemasearcher.model.entites.Cinema
 import com.tematikhonov.cinemasearcher.model.repository.Repository
-import com.tematikhonov.cinemasearcher.model.repository.RepossitoryImpl
 import java.lang.Thread.sleep
 
 class MainViewModel(private val repository : Repository) : ViewModel() {

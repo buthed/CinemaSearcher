@@ -1,4 +1,4 @@
-package com.tematikhonov.cinemasearcher.framework.main
+package com.tematikhonov.cinemasearcher.framework.ui.main
 
 
 import android.os.Bundle
@@ -12,30 +12,31 @@ import com.google.android.material.snackbar.Snackbar
 import com.tematikhonov.cinemasearcher.databinding.MainFragmentBinding
 import com.tematikhonov.cinemasearcher.model.AppState
 import com.tematikhonov.cinemasearcher.model.entites.Cinema
-import com.tematikhonov.cinemasearcher.ui.main.MainViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class MainFragment : Fragment() {
 
-    private lateinit var binding: MainFragmentBinding
+    private var _binding: MainFragmentBinding? = null
+    private val binding get() = _binding!!
+    private val viewModel by viewModel<MainViewModel>()
 
     companion object {
         fun newInstance() = MainFragment()
     }
 
-    private lateinit var viewModel : MainViewModel
+//    private lateinit var viewModel : MainViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
-        binding = MainFragmentBinding.inflate(inflater, container, false)
+        _binding = MainFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         val observer = Observer<AppState> { renderData(it) }
         viewModel.getLiveData().observe(viewLifecycleOwner, observer)
@@ -44,28 +45,28 @@ class MainFragment : Fragment() {
 
     }
 
-    private fun renderData(appState: AppState) = with(binding){
+    private fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Success -> {
-                loadingLayout.visibility = View.GONE
+                binding.loadingLayout.visibility = View.GONE
                 setData(appState.cinemaData)
             }
             is AppState.Loading -> {
-                loadingLayout.visibility = View.VISIBLE
+                binding.loadingLayout.visibility = View.VISIBLE
             }
             is AppState.Error -> {
-                loadingLayout.visibility = View.GONE
+                binding.loadingLayout.visibility = View.GONE
                 Snackbar
-                        .make(mainView, "Error", Snackbar.LENGTH_INDEFINITE)
+                        .make(binding.mainView, "Error", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Reload") { viewModel.getCinema() }
                         .show()
             }
         }
     }
 
-    private fun setData(cinemaData: Cinema) = with(binding){
-        cinemaTitle.text = cinemaData.title.toString()
-        cinemaYear.text = cinemaData.release_date.toString()
-        cinemaRating.text = cinemaData.vote_average.toString()
+    private fun setData(cinemaData: Cinema){
+        binding.cinemaTitle.text = cinemaData.title.toString()
+        binding.cinemaYear.text = cinemaData.release_date.toString()
+        binding.cinemaRating.text = cinemaData.vote_average.toString()
     }
 }
