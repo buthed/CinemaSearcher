@@ -1,4 +1,4 @@
-package com.tematikhonov.cinemasearcher
+package com.tematikhonov.cinemasearcher.framework
 
 import android.app.Application
 import com.tematikhonov.cinemasearcher.di.appModule

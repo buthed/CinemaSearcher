@@ -1,10 +1,8 @@
 package com.tematikhonov.cinemasearcher
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.tematikhonov.cinemasearcher.ui.main.MainFragment
+import com.tematikhonov.cinemasearcher.framework.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

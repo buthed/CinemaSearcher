@@ -10,5 +10,4 @@ class RepossitoryImpl : Repository {
     override fun getCinemaFromLocalStorage(): Cinema {
         return Cinema()
     }
-
 }

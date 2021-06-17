@@ -1,11 +1,10 @@
-package com.tematikhonov.cinemasearcher.ui.main
+package com.tematikhonov.cinemasearcher.framework.main
 
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -13,7 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.tematikhonov.cinemasearcher.databinding.MainFragmentBinding
 import com.tematikhonov.cinemasearcher.model.AppState
 import com.tematikhonov.cinemasearcher.model.entites.Cinema
-import com.tematikhonov.weather.ui.main.MainViewModel
+import com.tematikhonov.cinemasearcher.ui.main.MainViewModel
 
 
 class MainFragment : Fragment() {
@@ -33,7 +32,6 @@ class MainFragment : Fragment() {
         binding = MainFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -66,10 +64,8 @@ class MainFragment : Fragment() {
     }
 
     private fun setData(cinemaData: Cinema) = with(binding){
-
         cinemaTitle.text = cinemaData.title.toString()
         cinemaYear.text = cinemaData.release_date.toString()
         cinemaRating.text = cinemaData.vote_average.toString()
     }
-
 }

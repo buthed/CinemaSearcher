@@ -1,4 +1,4 @@
-package com.tematikhonov.weather.ui.main
+package com.tematikhonov.cinemasearcher.ui.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,9 +8,8 @@ import com.tematikhonov.cinemasearcher.model.repository.Repository
 import com.tematikhonov.cinemasearcher.model.repository.RepossitoryImpl
 import java.lang.Thread.sleep
 
-class MainViewModel() : ViewModel() {
+class MainViewModel(private val repository : Repository) : ViewModel() {
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
-    private val repository : Repository = RepossitoryImpl()
 
     fun getLiveData() = liveDataToObserve
 
