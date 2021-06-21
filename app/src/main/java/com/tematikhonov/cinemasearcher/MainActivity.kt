@@ -2,7 +2,7 @@ package com.tematikhonov.cinemasearcher
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.tematikhonov.cinemasearcher.framework.ui.main.MainFragment
+import com.tematikhonov.cinemasearcher.framework.ui.main_fragment.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

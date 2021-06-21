@@ -2,14 +2,13 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
-apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.tematikhonov.cinemasearcher"
+        applicationId "com.example.testkotlin"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -28,6 +27,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 
     buildFeatures {
         viewBinding true
@@ -42,11 +44,12 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
-    implementation 'androidx.recyclerview:recyclerview:1.2.0'
 
     // Koin for Kotlin Multiplatform
-    implementation 'io.insert-koin:koin-android:3.0.2'
-//    implementation "org.koin:koin-android-viewmodel:3.0.2"
+    implementation 'io.insert-koin:koin-android:2.2.3'
+    implementation 'io.insert-koin:koin-androidx-viewmodel:2.2.3'
+
+
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

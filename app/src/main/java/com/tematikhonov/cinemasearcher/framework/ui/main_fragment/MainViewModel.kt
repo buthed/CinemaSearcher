@@ -1,4 +1,4 @@
-package com.tematikhonov.cinemasearcher.framework.ui.main
+package com.tematikhonov.cinemasearcher.framework.ui.main_fragment
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

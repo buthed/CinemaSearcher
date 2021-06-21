@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/textViewItem"
+    android:id="@+id/itemContainer"
     android:layout_width="150dp"
     android:layout_height="300dp"
     android:layout_margin="@dimen/margin_15_dp"
@@ -24,6 +24,7 @@
             tools:src="@drawable/thisisengland"/>
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/itemTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_of_cinema"
@@ -36,6 +37,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/itemReleaseDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -50,6 +52,7 @@
                 android:layout_weight="2"/>
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/itemRank"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingEnd="@dimen/margin_5_dp"
@@ -59,7 +62,5 @@
 
         </LinearLayout>
     </LinearLayout>
-
-
 
 </androidx.cardview.widget.CardView>
