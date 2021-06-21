@@ -11,7 +11,7 @@ class MainViewModel(private val repository : Repository) : ViewModel() {
 
     fun getLiveData() = liveDataToObserve
 
-    fun getCinema() = getDataFromLocalSource()
+    fun getCinemaList() = getDataFromLocalSource()
 
     private fun getDataFromLocalSource() {
         liveDataToObserve.value = AppState.Loading

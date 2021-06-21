@@ -8,19 +8,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
+import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.databinding.MainFragmentBinding
+import com.tematikhonov.cinemasearcher.framework.ui.adapters.MainFragmentAdapter
+import com.tematikhonov.cinemasearcher.framework.ui.details_fragment.CinemaFragment
 import com.tematikhonov.cinemasearcher.model.AppState
+import com.tematikhonov.cinemasearcher.model.entites.Cinema
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class MainFragment : Fragment() {
-
     private lateinit var binding: MainFragmentBinding
     private val viewModel: MainViewModel by viewModel()
 
-    companion object {
-        fun newInstance() = MainFragment()
-    }
+    private var adapter: MainFragmentAdapter? = null
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -32,11 +33,9 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val observer = Observer<AppState> { renderData(it) }
-        viewModel.getLiveData().observe(viewLifecycleOwner, observer)
-
-        viewModel.getCinema()
+        binding.recyclerViewNowPlaying.adapter = adapter
+        viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
+        viewModel.getCinemaList()
 
     }
 
@@ -44,7 +43,24 @@ class MainFragment : Fragment() {
         when (appState) {
             is AppState.Success -> {
                 loadingLayout.visibility = View.GONE
-                setData(appState.cinemaData)
+                adapter = MainFragmentAdapter(object : OnItemViewClickListener {
+                    override fun onItemViewClick(cinema: Cinema) {
+                        val manager = activity?.supportFragmentManager
+                        manager?.let { manager ->
+                            val bundle = Bundle().apply {
+                                putParcelable(CinemaFragment.BUNDLE_EXTRA, cinema)
+                            }
+                            manager.beginTransaction()
+                                    .add(R.id.container, CinemaFragment.newInstance(bundle))
+                                    .addToBackStack("")
+                                    .commitAllowingStateLoss()
+                        }
+                    }
+                }
+                ).apply {
+                    setCinema(appState.cinemaData)
+                }
+                recyclerViewNowPlaying.adapter = adapter
             }
             is AppState.Loading -> {
                 loadingLayout.visibility = View.VISIBLE
@@ -53,10 +69,18 @@ class MainFragment : Fragment() {
                 loadingLayout.visibility = View.GONE
                 Snackbar
                         .make(binding.mainView, "Error", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("Reload") { viewModel.getCinema() }
+                        .setAction("Reload") { viewModel.getCinemaList() }
                         .show()
             }
         }
+    }
+
+    interface OnItemViewClickListener {
+        fun onItemViewClick(cinema: Cinema)
+    }
+
+    companion object {
+        fun newInstance() = MainFragment()
     }
 
 //    private fun setData(cinemaData: Cinema) = with(binding){

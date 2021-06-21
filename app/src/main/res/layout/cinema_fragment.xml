@@ -9,7 +9,7 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/test_banner"
+            android:id="@+id/cardBanner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/test_banner"
@@ -18,14 +18,14 @@
             android:adjustViewBounds="true"/>
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/test_title"
+            android:id="@+id/cardTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/test_poster"
-            app:layout_constraintTop_toBottomOf="@id/test_banner"
+            app:layout_constraintEnd_toStartOf="@id/cardPoster"
+            app:layout_constraintTop_toBottomOf="@id/cardBanner"
             app:layout_constraintHorizontal_bias="0"
             app:layout_goneMarginEnd="16dp"
             app:layout_constrainedWidth="true"
@@ -33,54 +33,54 @@
             android:text="@string/test_title"/>
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/test_poster"
+            android:id="@+id/cardPoster"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:src="@drawable/test_logo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/test_banner"
+            app:layout_constraintTop_toBottomOf="@id/cardBanner"
             android:layout_marginEnd="16dp"
             android:adjustViewBounds="true"/>
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/test_year"
+            android:id="@+id/cardYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:layout_marginTop="16dp"
             android:text="@string/test_year"
-            app:layout_constraintTop_toBottomOf="@id/test_title"
+            app:layout_constraintTop_toBottomOf="@id/cardTitle"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"/>
 
         <androidx.appcompat.widget.AppCompatCheckBox
-            android:id="@+id/test_favorite"
+            android:id="@+id/cardFavorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@id/test_rank"
+            app:layout_constraintEnd_toStartOf="@id/cardRank"
             android:button="@drawable/custom_checkbox"
-            app:layout_constraintBaseline_toBaselineOf="@id/test_year" />
+            app:layout_constraintBaseline_toBaselineOf="@id/cardYear" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/test_rank"
+            android:id="@+id/cardRank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toStartOf="@id/test_poster"
-            app:layout_constraintBaseline_toBaselineOf="@id/test_year"
+            app:layout_constraintEnd_toStartOf="@id/cardPoster"
+            app:layout_constraintBaseline_toBaselineOf="@id/cardYear"
             android:text="@string/test_rank"/>
 
         <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/test_title_bottom_barrier"
+            android:id="@+id/cardTitleBottomBarrier"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="test_title, test_poster,test_title,test_year,test_rank,test_favorite" />
+            app:constraint_referenced_ids="cardPoster,cardTitle,cardYear,cardRank,cardFavorite" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/test_overview"
+            android:id="@+id/cardOverview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -90,7 +90,7 @@
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/test_title_bottom_barrier"/>
+            app:layout_constraintTop_toBottomOf="@id/cardTitleBottomBarrier"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
