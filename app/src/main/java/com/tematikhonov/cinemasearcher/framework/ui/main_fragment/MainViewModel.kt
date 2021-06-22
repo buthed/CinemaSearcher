@@ -1,4 +1,4 @@
-package com.tematikhonov.cinemasearcher.framework.ui.main
+package com.tematikhonov.cinemasearcher.framework.ui.main_fragment
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,7 +11,7 @@ class MainViewModel(private val repository : Repository) : ViewModel() {
 
     fun getLiveData() = liveDataToObserve
 
-    fun getCinema() = getDataFromLocalSource()
+    fun getCinemaList() = getDataFromLocalSource()
 
     private fun getDataFromLocalSource() {
         liveDataToObserve.value = AppState.Loading
