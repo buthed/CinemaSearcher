@@ -2,20 +2,24 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/cardBanner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/test_banner"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:adjustViewBounds="true"/>
+            android:adjustViewBounds="true"
+            tools:src="@drawable/test_banner"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/cardTitle"
@@ -30,17 +34,17 @@
             app:layout_goneMarginEnd="16dp"
             app:layout_constrainedWidth="true"
             android:textSize="30sp"
-            android:text="@string/test_title"/>
+            tools:text="@string/test_title"/>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/cardPoster"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/test_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardBanner"
             android:layout_marginEnd="16dp"
-            android:adjustViewBounds="true"/>
+            android:adjustViewBounds="true"
+            tools:src="@drawable/test_logo"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/cardYear"
@@ -48,10 +52,10 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:layout_marginTop="16dp"
-            android:text="@string/test_year"
             app:layout_constraintTop_toBottomOf="@id/cardTitle"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="16dp"
+            tools:text="@string/test_title"/>
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/cardFavorite"
@@ -69,7 +73,51 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toStartOf="@id/cardPoster"
             app:layout_constraintBaseline_toBaselineOf="@id/cardYear"
-            android:text="@string/test_rank"/>
+            tools:text="@string/test_rank"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/cardBudgetLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/cardYear"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:text="@string/card_budget"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/cardBudget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/cardYear"
+            app:layout_constraintStart_toStartOf="@id/cardRevenue"
+
+            tools:text="@string/test_budget"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/cardRevenueLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/cardBudgetLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:text="@string/card_revenue"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/cardRevenue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/cardBudgetLabel"
+            app:layout_constraintStart_toEndOf="@id/cardRevenueLabel"
+            android:layout_marginStart="16dp"
+            tools:text="@string/test_revenue"/>
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/cardTitleBottomBarrier"
@@ -77,20 +125,20 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="cardPoster,cardTitle,cardYear,cardRank,cardFavorite" />
+            app:constraint_referenced_ids="cardPoster,cardTitle,cardYear,cardRank,cardFavorite, cardRevenueLabel, cardBudgetLabel" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/cardOverview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/test_overview"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardTitleBottomBarrier"/>
+            app:layout_constraintTop_toBottomOf="@id/cardTitleBottomBarrier"
+            tools:text="@string/test_overview"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

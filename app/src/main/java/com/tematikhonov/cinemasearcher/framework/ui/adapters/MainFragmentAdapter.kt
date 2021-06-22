@@ -44,8 +44,8 @@ class MainFragmentAdapter(private var itemClickListener:
     inner class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(cinema: Cinema) = with(binding) {
             itemTitle.text = cinema.title
-            itemReleaseDate.text = cinema.release_date
-            itemRank.text = cinema.vote_average
+//            itemReleaseDate.text = cinema.release_date
+//            itemRank.text = cinema.vote_average
             root.setOnClickListener { itemClickListener?.onItemViewClick(cinema) }
         }
     }

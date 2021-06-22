@@ -68,7 +68,7 @@ class MainFragment : Fragment() {
             is AppState.Error -> {
                 loadingLayout.visibility = View.GONE
                 Snackbar
-                        .make(binding.mainView, "Error", Snackbar.LENGTH_INDEFINITE)
+                        .make(binding.recyclerViewNowPlaying, "Error", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Reload") { viewModel.getCinemaList() }
                         .show()
             }
@@ -82,10 +82,4 @@ class MainFragment : Fragment() {
     companion object {
         fun newInstance() = MainFragment()
     }
-
-//    private fun setData(cinemaData: Cinema) = with(binding){
-//        cinemaTitle.text = cinemaData.title.toString()
-//        cinemaYear.text = cinemaData.release_date.toString()
-//        cinemaRating.text = cinemaData.vote_average.toString()
-//    }
 }

@@ -16,55 +16,39 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Now Playing" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewNowPlaying"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewNowPlaying"
-            tools:itemCount="1"
-            tools:listitem="@layout/main_fragment_recycler_item"/>
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textViewUpcoming"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Main_page_upcoming"
-        android:textSize="@dimen/title_of_cinema"
-        android:textStyle="bold"
-        android:layout_margin="@dimen/margin_15_dp"
-        tools:text="Upcoming"
-        app:layout_constraintTop_toBottomOf="@id/recyclerViewNowPlaying"/>
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewUpcoming"
+        android:id="@+id/recyclerViewNowPlaying"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewUpcoming"
+        app:layout_constraintTop_toBottomOf="@id/textViewNowPlaying"
         tools:itemCount="1"
         tools:listitem="@layout/main_fragment_recycler_item"/>
 
+<!--    <com.google.android.material.textview.MaterialTextView-->
+<!--        android:id="@+id/textViewUpcoming"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/Main_page_upcoming"-->
+<!--        android:textSize="@dimen/title_of_cinema"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_margin="@dimen/margin_15_dp"-->
+<!--        tools:text="Upcoming"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/recyclerViewNowPlaying"/>-->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/mainView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MainFragment"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recyclerViewUpcoming"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/textViewUpcoming"-->
+<!--        tools:itemCount="1"-->
+<!--        tools:listitem="@layout/main_fragment_recycler_item"/>-->
 
     <FrameLayout
         android:id="@+id/loadingLayout"
