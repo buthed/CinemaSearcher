@@ -4,17 +4,15 @@ package com.tematikhonov.cinemasearcher.framework.ui.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.tematikhonov.cinemasearcher.R
+import com.squareup.picasso.Picasso
 import com.tematikhonov.cinemasearcher.databinding.MainFragmentRecyclerItemBinding
 import com.tematikhonov.cinemasearcher.framework.ui.main_fragment.MainFragment
 import com.tematikhonov.cinemasearcher.model.entites.Cinema
 
 class MainFragmentAdapter(private var itemClickListener:
-                          MainFragment.OnItemViewClickListener?) :
-        RecyclerView.Adapter<MainFragmentAdapter.MainViewHolder>() {
+                        MainFragment.OnItemViewClickListener?) :
+                        RecyclerView.Adapter<MainFragmentAdapter.MainViewHolder>() {
     private var cinemaData: List<Cinema> = listOf()
     private lateinit var binding: MainFragmentRecyclerItemBinding
 
@@ -44,8 +42,10 @@ class MainFragmentAdapter(private var itemClickListener:
     inner class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(cinema: Cinema) = with(binding) {
             itemTitle.text = cinema.title
-//            itemReleaseDate.text = cinema.release_date
-//            itemRank.text = cinema.vote_average
+            itemReleaseDate.text = cinema.release_date
+            itemRank.text = cinema.vote_average
+            val urlPoster: String = cinema.poster_path.toString()
+            Picasso.get().load(urlPoster).into(itemBanner)
             root.setOnClickListener { itemClickListener?.onItemViewClick(cinema) }
         }
     }

@@ -1,17 +1,13 @@
 package com.tematikhonov.cinemasearcher.framework.ui.details_fragment
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.squareup.picasso.Picasso
-import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.databinding.CinemaFragmentBinding
 import com.tematikhonov.cinemasearcher.model.entites.Cinema
-import kotlinx.android.synthetic.*
 
 class CinemaFragment : Fragment() {
     private lateinit var binding: CinemaFragmentBinding

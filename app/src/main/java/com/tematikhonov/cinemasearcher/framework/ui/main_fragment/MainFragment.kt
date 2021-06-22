@@ -1,12 +1,10 @@
 package com.tematikhonov.cinemasearcher.framework.ui.main_fragment
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.databinding.MainFragmentBinding
@@ -36,7 +34,6 @@ class MainFragment : Fragment() {
         binding.recyclerViewNowPlaying.adapter = adapter
         viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
         viewModel.getCinemaList()
-
     }
 
     private fun renderData(appState: AppState) = with(binding){
