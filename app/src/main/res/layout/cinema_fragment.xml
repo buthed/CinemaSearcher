@@ -13,7 +13,7 @@
         android:focusable="true">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/cardBanner"
+            android:id="@+id/cardBackdrop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,7 +29,7 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/cardPoster"
-            app:layout_constraintTop_toBottomOf="@id/cardBanner"
+            app:layout_constraintTop_toBottomOf="@id/cardBackdrop"
             app:layout_constraintHorizontal_bias="0"
             app:layout_goneMarginEnd="16dp"
             app:layout_constrainedWidth="true"
@@ -41,7 +41,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardBanner"
+            app:layout_constraintTop_toBottomOf="@id/cardBackdrop"
             android:layout_marginEnd="16dp"
             android:adjustViewBounds="true"
             tools:src="@drawable/test_logo"/>

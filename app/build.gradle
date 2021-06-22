@@ -50,7 +50,7 @@ dependencies {
     implementation 'io.insert-koin:koin-android:2.2.3'
     implementation 'io.insert-koin:koin-androidx-viewmodel:2.2.3'
 
-
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

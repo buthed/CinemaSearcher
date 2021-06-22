@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import com.squareup.picasso.Picasso
 import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.databinding.CinemaFragmentBinding
 import com.tematikhonov.cinemasearcher.model.entites.Cinema
@@ -14,6 +15,7 @@ import kotlinx.android.synthetic.*
 
 class CinemaFragment : Fragment() {
     private lateinit var binding: CinemaFragmentBinding
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -33,6 +35,10 @@ class CinemaFragment : Fragment() {
             binding.cardOverview.text = it.overview.toString()
             binding.cardBudget.text = it.budget.toString() + "$"
             binding.cardRevenue.text = it.revenue.toString() + "$"
+            val urlPoster: String = it.poster_path.toString()
+            val urlBackdrop: String = it.backdrop_path.toString()
+            Picasso.get().load(urlPoster).into(binding.cardPoster)
+            Picasso.get().load(urlBackdrop).into(binding.cardBackdrop);
         }
     }
 
