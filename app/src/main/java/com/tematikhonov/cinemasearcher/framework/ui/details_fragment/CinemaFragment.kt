@@ -25,16 +25,18 @@ class CinemaFragment : Fragment() {
 
         super.onViewCreated(view, savedInstanceState)
         arguments?.getParcelable<Cinema>(BUNDLE_EXTRA)?.let {
-            binding.cardTitle.text = it.title.toString()
-            binding.cardYear.text = it.release_date.toString()
-            binding.cardRank.text = it.vote_average.toString()
-            binding.cardOverview.text = it.overview.toString()
-            binding.cardBudget.text = it.budget.toString() + "$"
-            binding.cardRevenue.text = it.revenue.toString() + "$"
+            with(binding) {
+            cardTitle.text = it.title.toString()
+            cardYear.text = it.release_date.toString()
+            cardRank.text = it.vote_average.toString()
+            cardOverview.text = it.overview.toString()
+            cardBudget.text = it.budget.toString() + "$"
+            cardRevenue.text = it.revenue.toString() + "$"
             val urlPoster: String = it.poster_path.toString()
             val urlBackdrop: String = it.backdrop_path.toString()
-            Picasso.get().load(urlPoster).into(binding.cardPoster)
-            Picasso.get().load(urlBackdrop).into(binding.cardBackdrop);
+            Picasso.get().load(urlPoster).into(cardPoster)
+            Picasso.get().load(urlBackdrop).into(cardBackdrop);
+            }
         }
     }
 

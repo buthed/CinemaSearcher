@@ -28,27 +28,13 @@
         tools:itemCount="1"
         tools:listitem="@layout/main_fragment_recycler_item"/>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textViewUpcoming"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Main_page_upcoming"
-        android:textSize="@dimen/title_of_cinema"
-        android:textStyle="bold"
-        android:layout_margin="@dimen/margin_10_dp"
-        tools:text="Upcoming"
-        app:layout_constraintTop_toBottomOf="@id/recyclerViewNowPlaying"/>
-
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/recyclerViewUpcoming"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/textViewUpcoming"-->
-<!--        tools:itemCount="1"-->
-<!--        tools:listitem="@layout/item"/>-->
+        app:menu="@menu/bottom_navigation_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <FrameLayout
         android:id="@+id/loadingLayout"

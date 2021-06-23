@@ -65,7 +65,7 @@ class MainFragment : Fragment() {
             is AppState.Error -> {
                 loadingLayout.visibility = View.GONE
                 Snackbar
-                        .make(binding.recyclerViewNowPlaying, "Error", Snackbar.LENGTH_INDEFINITE)
+                        .make(binding.recyclerViewNowPlaying, getString(R.string.error), Snackbar.LENGTH_INDEFINITE)
                         .setAction("Reload") { viewModel.getCinemaList() }
                         .show()
             }

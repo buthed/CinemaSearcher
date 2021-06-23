@@ -35,9 +35,8 @@ class MainFragmentAdapter(private var itemClickListener:
         holder.bind(cinemaData[position])
     }
 
-    override fun getItemCount(): Int {
-        return cinemaData.size
-    }
+    override fun getItemCount() = cinemaData.size
+
 
     inner class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(cinema: Cinema) = with(binding) {

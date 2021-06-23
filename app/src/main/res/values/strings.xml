@@ -3,6 +3,7 @@
     <string name="first_button">Kotlin button</string>
     <string name="Main_page_now_playing">Now Playing</string>
     <string name="Main_page_upcoming">Upcoming</string>
+    <string name="error">Error</string>
 
     //For test xml
     <string name="test_title">Cruella</string>
@@ -13,4 +14,10 @@
     <string name="card_revenue">Revenue: </string>
     <string name="test_budget">20000000</string>
     <string name="test_revenue">777000000</string>
+
+    //For bottom navigation menu
+    <string name="menu_home">Home</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_favorites">Favorites</string>
+    <string name="menu_login">Login</string>
 </resources>
