@@ -51,6 +51,7 @@ dependencies {
     implementation 'io.insert-koin:koin-androidx-viewmodel:2.2.3'
 
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
