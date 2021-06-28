@@ -7,6 +7,7 @@
     android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -139,5 +140,22 @@
             app:layout_constraintTop_toBottomOf="@id/cardTitleBottomBarrier"
             tools:text="@string/test_overview"/>
 
+
+        <FrameLayout
+            android:id="@+id/loadingLayoutForCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 </ScrollView>
