@@ -14,8 +14,8 @@ class RepositoryImpl : Repository {
                 vote_average = dto?.vote_average,
                 budget = dto?.budget,
                 revenue = dto?.revenue,
-                poster_path = dto?.poster_path,
-                backdrop_path = dto?.backdrop_path,
+                poster_path = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/" + dto?.poster_path,
+                backdrop_path = "https://www.themoviedb.org/t/p/original/" + dto?.backdrop_path,
                 overview = dto?.overview
         )
     }
