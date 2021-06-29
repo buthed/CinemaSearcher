@@ -7,7 +7,7 @@ import com.tematikhonov.cinemasearcher.model.repository.Repository
 import java.lang.Thread.sleep
 
 class MainViewModel(private val repository : Repository) : ViewModel() {
-    private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
+    internal val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
 
     fun getLiveData() = liveDataToObserve
 
