@@ -7,3 +7,9 @@ sealed class AppState {
     data class Error(val error: Throwable) : AppState()
     object Loading : AppState()
 }
+
+sealed class AppStateMain{
+    data class Success(val dataCinemaNowPlaying: List<Cinema>) : AppStateMain()
+    data class Error(val error: Throwable) : AppStateMain()
+    object Loading : AppStateMain()
+}
