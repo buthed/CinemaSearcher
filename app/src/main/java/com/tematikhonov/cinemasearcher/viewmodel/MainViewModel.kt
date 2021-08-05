@@ -13,7 +13,7 @@ class MainViewModel(private val liveDataObserverMain : MutableLiveData<AppStateM
     fun getCinemaListNowPlaying() = getDataFromLocalSourceNowPlaying()
     //fun getCinemaListUpcoming() = getDataFromLocalSourceUpcoming()
 
-    fun getDataFromLocalSourceNowPlaying(){
+    private fun getDataFromLocalSourceNowPlaying(){
         Thread{
             Thread.sleep(1000)
             liveDataObserverMain.postValue(AppStateMain.Success(repository.getCinemaListFromLocalSourceNowPlaying()))

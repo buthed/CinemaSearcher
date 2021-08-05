@@ -36,7 +36,7 @@ class CinemaFragment : Fragment() {
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = CinemaFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -48,8 +48,8 @@ class CinemaFragment : Fragment() {
             binding.cardYear.text = it.release_date.toString()
             binding.cardRank.text = it.vote_average.toString()
             binding.cardOverview.text = it.overview.toString()
-            binding.cardBudget.text = it.budget.toString() + "$"
-            binding.cardRevenue.text = it.revenue.toString() + "$"
+            binding.cardBudget.text = "${it.budget.toString()} $"
+            binding.cardRevenue.text = "${it.revenue.toString()} $"
             val urlPoster: String = it.poster_path.toString()
             val urlBackdrop: String = it.backdrop_path.toString()
             Picasso.get().load(urlPoster).into(binding.cardPoster)
@@ -62,26 +62,26 @@ class CinemaFragment : Fragment() {
         _binding = null
     }
 
-    private fun renderData(appState: AppState) {
-        when(appState){
-            is AppState.Error -> TODO() //show errors
-            is AppState.Success -> {
-                loadingLayoutForCard.visibility = View.GONE
-                setData(appState)
-            }
-            AppState.Loading -> {
-                binding.loadingLayoutForCard.visibility = View.VISIBLE
-            }
-        }
-    }
+//    private fun renderData(appState: AppState) {
+//        when(appState){
+//            is AppState.Error -> TODO() //show errors
+//            is AppState.Success -> {
+//                loadingLayoutForCard.visibility = View.GONE
+//                setData(appState)
+//            }
+//            AppState.Loading -> {
+//                binding.loadingLayoutForCard.visibility = View.VISIBLE
+//            }
+//        }
+//    }
 
     private fun setData(appState: AppState.Success) {
         cardTitle.text = appState.dataCinema.title
         cardYear.text = appState.dataCinema.release_date
         cardRank.text = appState.dataCinema.vote_average
         cardOverview.text = appState.dataCinema.overview
-        cardBudget.text = appState.dataCinema.budget.toString() + "$"
-        cardRevenue.text = appState.dataCinema.revenue.toString() + "$"
+        cardBudget.text = "${appState.dataCinema.budget.toString()} $"
+        cardRevenue.text = "${appState.dataCinema.budget.toString()} $"
         val urlPoster: String = appState.dataCinema.poster_path.toString()
         val urlBackdrop: String = appState.dataCinema.backdrop_path.toString()
         Picasso.get().load(urlPoster).into(cardPoster)
