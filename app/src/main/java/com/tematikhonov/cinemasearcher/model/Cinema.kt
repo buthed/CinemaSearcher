@@ -1,6 +1,10 @@
 package com.tematikhonov.cinemasearcher.model
 
-class Cinema(
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class Cinema(
         val movie_id: Int = 1,
         val title: String? = "This is England",
         val release_date: String?  = "1990",
@@ -10,7 +14,7 @@ class Cinema(
         val poster_path: String? = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hUwvcDAZG0nbVQokqZh1oQt8Cpm.jpg",
         val backdrop_path: String? = "https://www.themoviedb.org/t/p/original/znV3ucZoH7g7MHZwjW7MlXzo5Pl.jpg",
         val overview: String?  = "Cinema"
-)
+): Parcelable
 
 fun getCinemasList() = listOf(
         Cinema(11798,"This is England", "2006", "7.5", 2380000, 8176544, "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hUwvcDAZG0nbVQokqZh1oQt8Cpm.jpg","https://www.themoviedb.org/t/p/original/znV3ucZoH7g7MHZwjW7MlXzo5Pl.jpg", "A story about a troubled boy growing up in England, set in 1983. He comes across a few skinheads on his way home from school, after a fight. They become his new best friends, even like family. Based on experiences of director Shane Meadows."),

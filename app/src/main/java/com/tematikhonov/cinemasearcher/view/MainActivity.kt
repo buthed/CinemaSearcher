@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.databinding.ActivityMainBinding
 
+
 class MainActivity: AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
@@ -16,7 +17,7 @@ class MainActivity: AppCompatActivity() {
         if(savedInstanceState==null){
             supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.fragment_container, CinemaFragment.newInstance())
+                    .replace(R.id.container, MainFragment.newInstance())
                     .commit()
         }
     }
