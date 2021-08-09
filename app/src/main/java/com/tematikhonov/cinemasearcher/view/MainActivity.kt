@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.databinding.ActivityMainBinding
 
-
 class MainActivity: AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
@@ -21,6 +20,4 @@ class MainActivity: AppCompatActivity() {
                     .commit()
         }
     }
-
-
 }

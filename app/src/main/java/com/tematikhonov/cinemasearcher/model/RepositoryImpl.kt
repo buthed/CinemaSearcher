@@ -1,7 +1,6 @@
 package com.tematikhonov.cinemasearcher.model
 
 class RepositoryImpl : Repository {
-
     override fun getCinemaFromLocalSource(movie_id: Int): Cinema = Cinema()
     override fun getCinemaListFromLocalSource(): List<Cinema> = getCinemasListNowPlaying()
     override fun getCinemaListFromLocalSourceNowPlaying(): List<Cinema> = getCinemasListNowPlaying()
@@ -9,5 +8,4 @@ class RepositoryImpl : Repository {
 
     override fun getCinemaFromServer(movie_id: Int): Cinema = Cinema()
     override fun getCinemaListFromServer(): List<Cinema> = getCinemasListNowPlaying()
-
 }

@@ -48,5 +48,4 @@ class MainFragmentUpcomingAdapter(private var itemClickListener:
             root.setOnClickListener { itemClickListener?.onItemViewClick(cinema) }
         }
     }
-
 }

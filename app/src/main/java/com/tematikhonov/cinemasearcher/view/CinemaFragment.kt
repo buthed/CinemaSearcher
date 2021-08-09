@@ -12,7 +12,6 @@ import com.tematikhonov.cinemasearcher.viewmodel.AppState
 import com.tematikhonov.cinemasearcher.viewmodel.CinemaViewModel
 import kotlinx.android.synthetic.main.cinema_fragment.*
 
-
 class CinemaFragment : Fragment() {
 
     lateinit var viewModel: CinemaViewModel
@@ -61,19 +60,6 @@ class CinemaFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
-//    private fun renderData(appState: AppState) {
-//        when(appState){
-//            is AppState.Error -> TODO() //show errors
-//            is AppState.Success -> {
-//                loadingLayoutForCard.visibility = View.GONE
-//                setData(appState)
-//            }
-//            AppState.Loading -> {
-//                binding.loadingLayoutForCard.visibility = View.VISIBLE
-//            }
-//        }
-//    }
 
     private fun setData(appState: AppState.Success) {
         cardTitle.text = appState.dataCinema.title

@@ -9,6 +9,7 @@ import java.lang.Thread.sleep
 class CinemaViewModel(private val liveDataObserver :MutableLiveData<AppState> = MutableLiveData(),
                       val repository: Repository = RepositoryImpl()) : ViewModel() {
 
+    //TODO: реализовать ил убрать.
     fun getLiveData() = liveDataObserver
 
     fun getCinema() = getDataFromLocalSource()
@@ -19,6 +20,4 @@ class CinemaViewModel(private val liveDataObserver :MutableLiveData<AppState> = 
             liveDataObserver.postValue(AppState.Success(repository.getCinemaFromLocalSource(1)))
         }.start()
     }
-
-
 }
