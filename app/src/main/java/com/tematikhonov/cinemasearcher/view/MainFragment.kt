@@ -35,22 +35,12 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-//        viewModel.getLiveDataMain().observe(viewLifecycleOwner, Observer { renderData(it) })
-//        viewModel.getCinemaListNowPlaying()
-//        viewModel.getCinemaListUpcoming()
-//    }
-    //TODO: OK? или выше лучше? Мне верхняя запичсь нравится больше :)
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java).also {
-            it.getLiveDataMain().observe(viewLifecycleOwner, Observer { renderData(it) })
-            it.getCinemaListNowPlaying()
-            it.getCinemaListUpcoming()
-        }
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel.getLiveDataMain().observe(viewLifecycleOwner, Observer { renderData(it) })
+        viewModel.getCinemaListNowPlaying()
+        viewModel.getCinemaListUpcoming()
     }
 
     override fun onDestroy() {
