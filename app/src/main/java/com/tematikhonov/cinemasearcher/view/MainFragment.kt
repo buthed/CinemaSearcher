@@ -96,23 +96,10 @@ class MainFragment : Fragment() {
                 is AppStateMain.Error -> {
                     loadingLayout.visibility = View.GONE
                 }
-            }
-        }
-//
-//    private fun setData(appState: AppState.Success) {
-//        cardTitle.text = appState.dataCinema.title
-//        cardYear.text = appState.dataCinema.release_date
-//        cardRank.text = appState.dataCinema.vote_average
-//        cardOverview.text = appState.dataCinema.overview
-//        cardBudget.text = appState.dataCinema.budget.toString() + "$"
-//        cardRevenue.text = appState.dataCinema.revenue.toString() + "$"
-//        val urlPoster: String = appState.dataCinema.poster_path.toString()
-//        val urlBackdrop: String = appState.dataCinema.backdrop_path.toString()
-//        Picasso.get().load(urlPoster).into(cardPoster)
-//        Picasso.get().load(urlBackdrop).into(cardBackdrop)
-//    }
-
-        companion object {
-            fun newInstance() = MainFragment()
         }
     }
+
+    companion object {
+        fun newInstance() = MainFragment()
+    }
+}
