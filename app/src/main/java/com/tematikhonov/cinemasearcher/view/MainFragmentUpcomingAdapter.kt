@@ -3,43 +3,42 @@ package com.tematikhonov.cinemasearcher.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.tematikhonov.cinemasearcher.databinding.MainFragmentRecyclerItemBinding
 import com.tematikhonov.cinemasearcher.model.Cinema
 
-class MainFragmentAdapter(private var itemClickListener:
+class MainFragmentUpcomingAdapter(private var itemClickListener:
                           OnItemViewClickListener?) :
-        RecyclerView.Adapter<MainFragmentAdapter.MainViewHolder>() {
+        RecyclerView.Adapter<MainFragmentUpcomingAdapter.UpcomingHolder>() {
 
-    private var nowPlayingData: List<Cinema> = listOf()
+    private var upcomingData: List<Cinema> = listOf()
     private lateinit var binding: MainFragmentRecyclerItemBinding
 
-    fun setCinema(data: List<Cinema>) {
-        nowPlayingData = data
+    fun setCinemaUpcoming(data: List<Cinema>) {
+        upcomingData = data
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(
             parent: ViewGroup,
             viewType: Int
-    ): MainViewHolder {
+    ): UpcomingHolder {
         binding = MainFragmentRecyclerItemBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
         )
-        return MainViewHolder(binding.root)
+        return UpcomingHolder(binding.root)
     }
 
-    override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        holder.bind(nowPlayingData[position])
+    override fun onBindViewHolder(holder: UpcomingHolder, position: Int) {
+        holder.bind(upcomingData[position])
     }
 
     override fun getItemCount(): Int {
-        return nowPlayingData.size
+        return upcomingData.size
     }
 
-    inner class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class UpcomingHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(cinema: Cinema) = with(binding) {
             itemTitle.text = cinema.title
             itemReleaseDate.text = cinema.release_date

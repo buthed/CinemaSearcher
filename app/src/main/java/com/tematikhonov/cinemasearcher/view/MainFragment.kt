@@ -23,8 +23,8 @@ class MainFragment : Fragment() {
             return _binding!!
         }
 
-    private var adapter: MainFragmentAdapter? = null
-
+    private var adapterNowPlaying: MainFragmentNowPlayingAdapter? = null
+    private var adapterUpcoming: MainFragmentUpcomingAdapter? = null
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -40,6 +40,7 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         viewModel.getLiveDataMain().observe(viewLifecycleOwner, Observer { renderData(it) })
         viewModel.getCinemaListNowPlaying()
+        viewModel.getCinemaListUpcoming()
     }
 
     override fun onDestroy() {
@@ -52,7 +53,7 @@ class MainFragment : Fragment() {
             is AppStateMain.Error -> TODO() //show errors
             is AppStateMain.Success -> {
                 loadingLayout.visibility = View.GONE
-                adapter = MainFragmentAdapter(object : OnItemViewClickListener {
+                adapterNowPlaying = MainFragmentNowPlayingAdapter(object : OnItemViewClickListener {
                     override fun onItemViewClick(cinema: Cinema) {
                         val manager = activity?.supportFragmentManager
                         manager?.let { manager ->
@@ -67,18 +68,36 @@ class MainFragment : Fragment() {
                     }
                 }
                 ).apply {
-                    setCinema(appState.dataCinemaNowPlaying)
+                    setCinemaNowPlaying(appState.dataCinemaNowPlaying)
                 }
-                recyclerViewNowPlaying.adapter = adapter
-            }
-            is AppStateMain.Loading -> {
-                loadingLayout.visibility = View.VISIBLE
-            }
-            is AppStateMain.Error -> {
-                loadingLayout.visibility = View.GONE
+                adapterUpcoming = MainFragmentUpcomingAdapter(object : OnItemViewClickListener {
+                    override fun onItemViewClick(cinema: Cinema) {
+                        val manager = activity?.supportFragmentManager
+                        manager?.let { manager ->
+                            val bundle = Bundle().apply {
+                                putParcelable(CinemaFragment.BUNDLE_EXTRA, cinema)
+                            }
+                            manager.beginTransaction()
+                                    .add(R.id.container, CinemaFragment.newInstance(bundle))
+                                    .addToBackStack("")
+                                    .commitAllowingStateLoss()
+                        }
+                    }
+                }
+                ).apply {
+                    setCinemaUpcoming(appState.dataCinemaUpcoming)
+                }
+                    recyclerViewNowPlaying.adapter = adapterNowPlaying
+                    recyclerViewUpcoming.adapter = adapterUpcoming
+                }
+                is AppStateMain.Loading -> {
+                    loadingLayout.visibility = View.VISIBLE
+                }
+                is AppStateMain.Error -> {
+                    loadingLayout.visibility = View.GONE
+                }
             }
         }
-    }
 //
 //    private fun setData(appState: AppState.Success) {
 //        cardTitle.text = appState.dataCinema.title
@@ -93,7 +112,7 @@ class MainFragment : Fragment() {
 //        Picasso.get().load(urlBackdrop).into(cardBackdrop)
 //    }
 
-    companion object {
-        fun newInstance() = MainFragment()
+        companion object {
+            fun newInstance() = MainFragment()
+        }
     }
-}

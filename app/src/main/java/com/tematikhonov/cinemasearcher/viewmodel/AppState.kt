@@ -9,7 +9,8 @@ sealed class AppState {
 }
 
 sealed class AppStateMain{
-    data class Success(val dataCinemaNowPlaying: List<Cinema>) : AppStateMain()
+    data class Success(val dataCinemaNowPlaying: List<Cinema> , val dataCinemaUpcoming: List<Cinema>) : AppStateMain()
+  //  data class Success(val dataCinemaNowPlaying: List<Cinema> ) : AppStateMain()
     data class Error(val error: Throwable) : AppStateMain()
     object Loading : AppStateMain()
 }
