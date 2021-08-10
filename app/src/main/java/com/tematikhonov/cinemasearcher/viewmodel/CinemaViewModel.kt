@@ -20,13 +20,4 @@ class CinemaViewModel(val liveDataObserverCinema : MutableLiveData<AppState> = M
             liveDataObserverCinema.postValue(AppState.Success(listOf(data)))
         }.start()
     }
-
-
-    //    fun loadCinemaData(movie_id: Int) {
-//        liveDataToObserve.value = AppState.Loading
-//        Thread {
-//            val data = repository.getCinemaFromServer(movie_id)
-//            liveDataToObserve.postValue(AppState.Success(listOf(data)))
-//        }.start()
-//    }
 }

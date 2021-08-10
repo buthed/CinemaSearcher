@@ -15,7 +15,7 @@ import com.tematikhonov.cinemasearcher.viewmodel.AppStateMain
 import com.tematikhonov.cinemasearcher.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(){
     lateinit var viewModel: MainViewModel
 
     var _binding: MainFragmentBinding? = null
