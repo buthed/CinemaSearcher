@@ -1,6 +1,7 @@
 package com.tematikhonov.cinemasearcher.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -55,6 +56,7 @@ class MainFragment : Fragment() {
                 loadingLayout.visibility = View.GONE
                 adapterNowPlaying = MainFragmentNowPlayingAdapter(object : OnItemViewClickListener {
                     override fun onItemViewClick(cinema: Cinema) {
+                        Log.d("TEST1", cinema.movie_id.toString())
                         val manager = activity?.supportFragmentManager
                         manager?.let { manager ->
                             val bundle = Bundle().apply {
@@ -72,6 +74,7 @@ class MainFragment : Fragment() {
                 }
                 adapterUpcoming = MainFragmentUpcomingAdapter(object : OnItemViewClickListener {
                     override fun onItemViewClick(cinema: Cinema) {
+                        Log.d("TEST1", cinema.movie_id.toString())
                         val manager = activity?.supportFragmentManager
                         manager?.let { manager ->
                             val bundle = Bundle().apply {
