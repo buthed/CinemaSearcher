@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.tematikhonov.cinemasearcher.databinding.MainFragmentRecyclerItemBinding
 import com.tematikhonov.cinemasearcher.model.Cinema
+import com.tematikhonov.cinemasearcher.model.NowPlayingDTO
 
 class MainFragmentNowPlayingAdapter(private var itemClickListener:
                           OnItemViewClickListener?) :
-        RecyclerView.Adapter<MainFragmentNowPlayingAdapter.NowPlayingViewHolder>() {
+        RecyclerView.Adapter<MainFragmentNowPlayingAdapter.NowPlayingViewHolder>(), NowPlayingLoaderListener {
 
     private var nowPlayingData: List<Cinema> = listOf()
     private lateinit var binding: MainFragmentRecyclerItemBinding
@@ -47,5 +48,13 @@ class MainFragmentNowPlayingAdapter(private var itemClickListener:
             Picasso.get().load(urlPoster).into(itemBanner)
             root.setOnClickListener { itemClickListener?.onItemViewClick(cinema) }
         }
+    }
+
+    override fun onLoaded(nowPlayingDTO: NowPlayingDTO) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onFailed(throwable: Throwable) {
+        TODO("Not yet implemented")
     }
 }

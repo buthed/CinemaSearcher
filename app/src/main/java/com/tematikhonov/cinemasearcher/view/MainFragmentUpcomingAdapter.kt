@@ -1,5 +1,6 @@
 package com.tematikhonov.cinemasearcher.view
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.tematikhonov.cinemasearcher.databinding.MainFragmentRecyclerItemBinding
 import com.tematikhonov.cinemasearcher.model.Cinema
+import com.tematikhonov.cinemasearcher.model.NowPlayingDTO
+import com.tematikhonov.cinemasearcher.view.details.CinemaLoader
 
 class MainFragmentUpcomingAdapter(private var itemClickListener:
                           OnItemViewClickListener?) :
