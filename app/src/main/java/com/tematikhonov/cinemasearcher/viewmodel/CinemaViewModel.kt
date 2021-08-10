@@ -4,20 +4,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tematikhonov.cinemasearcher.model.Repository
 import com.tematikhonov.cinemasearcher.model.RepositoryImpl
-import java.lang.Thread.sleep
 
-class CinemaViewModel(private val liveDataObserver :MutableLiveData<AppState> = MutableLiveData(),
-                      val repository: Repository = RepositoryImpl()) : ViewModel() {
 
-    //TODO: реализовать ил убрать.
-    fun getLiveData() = liveDataObserver
+class CinemaViewModel(val liveDataObserverCinema : MutableLiveData<AppState> = MutableLiveData(),
+                          val repository: Repository = RepositoryImpl()) : ViewModel() {
 
-    fun getCinema() = getDataFromLocalSource()
+    fun getLiveDataCinema() = liveDataObserverCinema
 
-    fun getDataFromLocalSource(){
-        Thread{
-            sleep(1000)
-            liveDataObserver.postValue(AppState.Success(repository.getCinemaFromLocalSource(1)))
+    fun getCinemaFromServer(movie_id: Int) = getDataCinemaFromServer(movie_id)
+
+    fun getDataCinemaFromServer(movie_id: Int) {
+        liveDataObserverCinema.value = AppState.Loading
+        Thread {
+            val data = repository.getCinemaFromServer()
+            liveDataObserverCinema.postValue(AppState.Success(listOf(data)))
         }.start()
     }
 }

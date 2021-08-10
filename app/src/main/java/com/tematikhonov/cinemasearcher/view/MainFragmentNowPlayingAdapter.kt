@@ -6,16 +6,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.tematikhonov.cinemasearcher.databinding.MainFragmentRecyclerItemBinding
-import com.tematikhonov.cinemasearcher.model.Cinema
+import com.tematikhonov.cinemasearcher.model.CinemaDTO
 
 class MainFragmentNowPlayingAdapter(private var itemClickListener:
                           OnItemViewClickListener?) :
         RecyclerView.Adapter<MainFragmentNowPlayingAdapter.NowPlayingViewHolder>() {
 
-    private var nowPlayingData: List<Cinema> = listOf()
+    private var nowPlayingData: List<CinemaDTO> = listOf()
     private lateinit var binding: MainFragmentRecyclerItemBinding
 
-    fun setCinemaNowPlaying(data: List<Cinema>) {
+    fun setCinemaNowPlaying(data: List<CinemaDTO>) {
         nowPlayingData = data
         notifyDataSetChanged()
     }
@@ -38,14 +38,16 @@ class MainFragmentNowPlayingAdapter(private var itemClickListener:
         return nowPlayingData.size
     }
 
+
     inner class NowPlayingViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(cinema: Cinema) = with(binding) {
+        fun bind(cinema: CinemaDTO) = with(binding) {
             itemTitle.text = cinema.title
             itemReleaseDate.text = cinema.release_date
             itemRank.text = cinema.vote_average
             val urlPoster: String = cinema.poster_path.toString()
             Picasso.get().load(urlPoster).into(itemBanner)
-            root.setOnClickListener { itemClickListener?.onItemViewClick(cinema) }
+            //root.setOnClickListener { itemClickListener?.onItemViewClick(cinema) }
         }
     }
+
 }
