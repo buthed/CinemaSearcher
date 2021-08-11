@@ -7,7 +7,7 @@ import com.tematikhonov.cinemasearcher.model.RepositoryImpl
 
 
 class CinemaViewModel(val liveDataObserverCinema : MutableLiveData<AppState> = MutableLiveData(),
-                          val repository: Repository = RepositoryImpl()) : ViewModel() {
+                      val repository: Repository = RepositoryImpl()) : ViewModel() {
 
     fun getLiveDataCinema() = liveDataObserverCinema
 

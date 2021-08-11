@@ -1,6 +1,5 @@
 package com.tematikhonov.cinemasearcher.model
 
-import com.tematikhonov.cinemasearcher.view.details.CinemaLoader
 
 class RepositoryImpl : Repository {
 
