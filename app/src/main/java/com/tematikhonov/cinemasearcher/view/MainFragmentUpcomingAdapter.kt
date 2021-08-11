@@ -6,16 +6,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.tematikhonov.cinemasearcher.databinding.MainFragmentRecyclerItemBinding
-import com.tematikhonov.cinemasearcher.model.Cinema
+import com.tematikhonov.cinemasearcher.model.CinemaDTO
 
 class MainFragmentUpcomingAdapter(private var itemClickListener:
                           OnItemViewClickListener?) :
         RecyclerView.Adapter<MainFragmentUpcomingAdapter.UpcomingHolder>() {
 
-    private var upcomingData: List<Cinema> = listOf()
+    private var upcomingData: List<CinemaDTO> = listOf()
     private lateinit var binding: MainFragmentRecyclerItemBinding
 
-    fun setCinemaUpcoming(data: List<Cinema>) {
+    fun setCinemaUpcoming(data: List<CinemaDTO>) {
         upcomingData = data
         notifyDataSetChanged()
     }
@@ -39,11 +39,11 @@ class MainFragmentUpcomingAdapter(private var itemClickListener:
     }
 
     inner class UpcomingHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(cinema: Cinema) = with(binding) {
+        fun bind(cinema: CinemaDTO) = with(binding) {
             itemTitle.text = cinema.title
             itemReleaseDate.text = cinema.release_date
             itemRank.text = cinema.vote_average
-            val urlPoster: String = cinema.poster_path.toString()
+            val urlPoster: String = "${"https://www.themoviedb.org/t/p/w600_and_h900_bestv2/"}" + cinema.poster_path
             Picasso.get().load(urlPoster).into(itemBanner)
             root.setOnClickListener { itemClickListener?.onItemViewClick(cinema) }
         }
