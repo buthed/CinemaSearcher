@@ -1,5 +1,9 @@
 package com.tematikhonov.cinemasearcher.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class CinemaDTO(
         val movie_id: Int,
         val title: String,
@@ -10,7 +14,7 @@ data class CinemaDTO(
         val poster_path: String,
         val backdrop_path: String,
         val overview: String
-)
+): Parcelable
 
 data class NowPlayingDTO(val results:List<CinemaDTO>)
 

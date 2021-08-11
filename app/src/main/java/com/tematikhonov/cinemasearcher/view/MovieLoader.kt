@@ -50,7 +50,6 @@ class MovieLoader(private val listener: NowPlayingLoaderListener) {
             }
         }.start()
     }
-
 }
 
 interface NowPlayingLoaderListener {

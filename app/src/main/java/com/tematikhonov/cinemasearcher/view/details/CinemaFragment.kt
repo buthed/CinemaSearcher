@@ -67,11 +67,11 @@ class CinemaFragment : Fragment(), CinemaLoaderListener {
         Toast.makeText(context, throwable.localizedMessage, Toast.LENGTH_LONG).show()
     }
 
-    lateinit var cinemaLocal: Cinema
+    lateinit var cinemaLocal: CinemaDTO
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        arguments?.getParcelable<Cinema>(BUNDLE_EXTRA)?.apply {
+        arguments?.getParcelable<CinemaDTO>(BUNDLE_EXTRA)?.apply {
             cinemaLocal = this
             CinemaLoader(this@CinemaFragment, this.movie_id).loadCinema()
         }

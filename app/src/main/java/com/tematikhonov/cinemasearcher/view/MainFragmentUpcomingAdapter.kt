@@ -46,7 +46,7 @@ class MainFragmentUpcomingAdapter(private var itemClickListener:
             itemRank.text = cinema.vote_average
             val urlPoster: String = "${"https://www.themoviedb.org/t/p/w600_and_h900_bestv2/"}" + cinema.poster_path
             Picasso.get().load(urlPoster).into(itemBanner)
-            //root.setOnClickListener { itemClickListener?.onItemViewClick(cinema) }
+            root.setOnClickListener { itemClickListener?.onItemViewClick(cinema) }
         }
     }
 }

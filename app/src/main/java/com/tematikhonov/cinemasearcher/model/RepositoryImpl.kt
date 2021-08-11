@@ -5,8 +5,8 @@ class RepositoryImpl : Repository {
 
     override fun getCinemaFromLocalSource(movie_id: Int): Cinema = Cinema()
     override fun getCinemaListFromLocalSource(): List<Cinema> = getCinemasListNowPlaying()
-    override fun getCinemaListFromLocalSourceNowPlaying(): List<Cinema> = getCinemasListNowPlaying()
-    override fun getCinemaListFromLocalSourceUpcoming(): List<Cinema> = getCinemasListUpcoming()
+//    override fun getCinemaListFromLocalSourceNowPlaying(): List<Cinema> = getCinemasListNowPlaying()
+//    override fun getCinemaListFromLocalSourceUpcoming(): List<Cinema> = getCinemasListUpcoming()
 
     override fun getCinemaFromServer(): Cinema = Cinema()
 //    override fun getCinemaFromServer(movie_id: Int): Cinema {

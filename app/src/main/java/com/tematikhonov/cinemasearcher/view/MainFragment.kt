@@ -11,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.databinding.MainFragmentBinding
-import com.tematikhonov.cinemasearcher.model.Cinema
 import com.tematikhonov.cinemasearcher.model.CinemaDTO
 import com.tematikhonov.cinemasearcher.model.NowPlayingDTO
 import com.tematikhonov.cinemasearcher.model.UpcomingDTO
@@ -20,6 +19,41 @@ import com.tematikhonov.cinemasearcher.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class MainFragment : Fragment(), NowPlayingLoaderListener{
+
+    private val adapterNowPlaying: MainFragmentNowPlayingAdapter =
+            MainFragmentNowPlayingAdapter(object : OnItemViewClickListener {
+
+                override fun onItemViewClick(cinema: CinemaDTO) {
+                    activity?.supportFragmentManager?.apply {
+                        beginTransaction()
+                                .add(R.id.container, CinemaFragment.newInstance(Bundle().apply {
+                                    putParcelable(CinemaFragment.BUNDLE_EXTRA, cinema)
+                                }))
+                                .addToBackStack("")
+                                .commitAllowingStateLoss()
+                    }
+                }
+    })
+    private val adapterUpcoming: MainFragmentUpcomingAdapter =
+            MainFragmentUpcomingAdapter(object : OnItemViewClickListener {
+
+                override fun onItemViewClick(cinema: CinemaDTO) {
+                    activity?.supportFragmentManager?.apply {
+                        beginTransaction()
+                                .add(R.id.container, CinemaFragment.newInstance(Bundle().apply {
+                                    putParcelable(CinemaFragment.BUNDLE_EXTRA, cinema)
+                                }))
+                                .addToBackStack("")
+                                .commitAllowingStateLoss()
+                    }
+                }
+            })
+
+
+
+
+
+
     lateinit var viewModel: MainViewModel
 
     var _binding: MainFragmentBinding? = null
@@ -28,8 +62,8 @@ class MainFragment : Fragment(), NowPlayingLoaderListener{
             return _binding!!
         }
 
-    private var adapterNowPlaying: MainFragmentNowPlayingAdapter? = null
-    private var adapterUpcoming: MainFragmentUpcomingAdapter? = null
+    //private var adapterNowPlaying: MainFragmentNowPlayingAdapter? = null
+    //private var adapterUpcoming: MainFragmentUpcomingAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,39 +78,8 @@ class MainFragment : Fragment(), NowPlayingLoaderListener{
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         viewModel. getLiveDataMain().observe(viewLifecycleOwner, Observer { renderData(it) })
-
-        adapterNowPlaying = MainFragmentNowPlayingAdapter(object : OnItemViewClickListener {
-            override fun onItemViewClick(cinema: Cinema) {
-                Log.d("TEST1", cinema.movie_id.toString())
-                val manager = activity?.supportFragmentManager
-                manager?.let { manager ->
-                    val bundle = Bundle().apply {
-                        putParcelable(CinemaFragment.BUNDLE_EXTRA, cinema)
-                    }
-                    manager.beginTransaction()
-                            .add(R.id.container, CinemaFragment.newInstance(bundle))
-                            .addToBackStack("")
-                            .commitAllowingStateLoss()
-                }
-            }
-        })
-
-        adapterUpcoming = MainFragmentUpcomingAdapter(object : OnItemViewClickListener {
-            override fun onItemViewClick(cinema: Cinema) {
-                Log.d("TEST1", cinema.movie_id.toString())
-                val manager = activity?.supportFragmentManager
-                manager?.let { manager ->
-                    val bundle = Bundle().apply {
-                        putParcelable(CinemaFragment.BUNDLE_EXTRA, cinema)
-                    }
-                    manager.beginTransaction()
-                            .add(R.id.container, CinemaFragment.newInstance(bundle))
-                            .addToBackStack("")
-                            .commitAllowingStateLoss()
-                }
-            }
-        })
-
+        viewModel.getCinemaListNowPlaying()
+        viewModel.getCinemaListUpcoming()
         MovieLoader(this).loadNowPlayingList()
         MovieLoader(this).loadUpcoming()
     }
@@ -87,55 +90,22 @@ class MainFragment : Fragment(), NowPlayingLoaderListener{
     }
 
     private fun renderData(appState: AppStateMain) {
-        when(appState){
+        when (appState) {
             is AppStateMain.Error -> TODO() //show errors
             is AppStateMain.Success -> {
-                loadingLayout.visibility = View.GONE
-                adapterNowPlaying = MainFragmentNowPlayingAdapter(object : OnItemViewClickListener {
-                    override fun onItemViewClick(cinema: Cinema) {
-                        Log.d("TEST1", cinema.movie_id.toString())
-                        val manager = activity?.supportFragmentManager
-                        manager?.let { manager ->
-                            val bundle = Bundle().apply {
-                                putParcelable(CinemaFragment.BUNDLE_EXTRA, cinema)
-                            }
-                            manager.beginTransaction()
-                                .add(R.id.container, CinemaFragment.newInstance(bundle))
-                                .addToBackStack("")
-                                .commitAllowingStateLoss()
-                        }
-                    }
+                with(binding) {
+                    loadingLayout.visibility = View.GONE
+                    recyclerViewNowPlaying.adapter = adapterNowPlaying
+                    recyclerViewUpcoming.adapter = adapterUpcoming
+                    adapterNowPlaying.setCinemaNowPlaying(appState.dataCinemaNowPlaying)
+                    adapterUpcoming.setCinemaUpcoming(appState.dataCinemaUpcoming)
+                    /* Классический вариант использования Snackbar
+                    Snackbar.make(binding.root,"Success",Snackbar.LENGTH_LONG).show()*/
+                    /*setData(appState)*/
                 }
-                ).apply {
-                    //setCinemaNowPlaying(appState.dataCinemaNowPlaying)
-                   // setCinemaNowPlaying(appState.(NowPlayingLoader(this,).loadNowPlayingList())) TODO: Нужно вывести список с Лоадера
-                }
-                adapterUpcoming = MainFragmentUpcomingAdapter(object : OnItemViewClickListener {
-                    override fun onItemViewClick(cinema: Cinema) {
-                        Log.d("TEST1", cinema.movie_id.toString())
-                        val manager = activity?.supportFragmentManager
-                        manager?.let { manager ->
-                            val bundle = Bundle().apply {
-                                putParcelable(CinemaFragment.BUNDLE_EXTRA, cinema)
-                            }
-                            manager.beginTransaction()
-                                    .add(R.id.container, CinemaFragment.newInstance(bundle))
-                                    .addToBackStack("")
-                                    .commitAllowingStateLoss()
-                        }
-                    }
-                }
-                ).apply {
-                //    setCinemaUpcoming(appState.dataCinemaUpcoming)
-                }
-                recyclerViewNowPlaying.adapter = adapterNowPlaying
-                recyclerViewUpcoming.adapter = adapterUpcoming
             }
-            is AppStateMain.Loading -> {
-                loadingLayout.visibility = View.VISIBLE
-            }
-            is AppStateMain.Error -> {
-                loadingLayout.visibility = View.GONE
+            AppStateMain.Loading -> {
+                binding.loadingLayout.visibility = View.VISIBLE
             }
         }
     }
