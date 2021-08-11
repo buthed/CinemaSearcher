@@ -34,25 +34,21 @@ class MainFragment : Fragment(), NowPlayingLoaderListener{
                     }
                 }
     })
+
     private val adapterUpcoming: MainFragmentUpcomingAdapter =
             MainFragmentUpcomingAdapter(object : OnItemViewClickListener {
 
-                override fun onItemViewClick(cinema: CinemaDTO) {
-                    activity?.supportFragmentManager?.apply {
-                        beginTransaction()
-                                .add(R.id.container, CinemaFragment.newInstance(Bundle().apply {
-                                    putParcelable(CinemaFragment.BUNDLE_EXTRA, cinema)
-                                }))
-                                .addToBackStack("")
-                                .commitAllowingStateLoss()
-                    }
-                }
-            })
-
-
-
-
-
+        override fun onItemViewClick(cinema: CinemaDTO) {
+            activity?.supportFragmentManager?.apply {
+                beginTransaction()
+                        .add(R.id.container, CinemaFragment.newInstance(Bundle().apply {
+                            putParcelable(CinemaFragment.BUNDLE_EXTRA, cinema)
+                        }))
+                        .addToBackStack("")
+                        .commitAllowingStateLoss()
+            }
+        }
+    })
 
     lateinit var viewModel: MainViewModel
 
@@ -61,9 +57,6 @@ class MainFragment : Fragment(), NowPlayingLoaderListener{
         get() :MainFragmentBinding {
             return _binding!!
         }
-
-    //private var adapterNowPlaying: MainFragmentNowPlayingAdapter? = null
-    //private var adapterUpcoming: MainFragmentUpcomingAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -99,9 +92,6 @@ class MainFragment : Fragment(), NowPlayingLoaderListener{
                     recyclerViewUpcoming.adapter = adapterUpcoming
                     adapterNowPlaying.setCinemaNowPlaying(appState.dataCinemaNowPlaying)
                     adapterUpcoming.setCinemaUpcoming(appState.dataCinemaUpcoming)
-                    /* Классический вариант использования Snackbar
-                    Snackbar.make(binding.root,"Success",Snackbar.LENGTH_LONG).show()*/
-                    /*setData(appState)*/
                 }
             }
             AppStateMain.Loading -> {

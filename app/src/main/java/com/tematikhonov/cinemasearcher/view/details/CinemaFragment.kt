@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.squareup.picasso.Picasso
 import com.tematikhonov.cinemasearcher.databinding.CinemaFragmentBinding
-import com.tematikhonov.cinemasearcher.model.Cinema
 import com.tematikhonov.cinemasearcher.model.CinemaDTO
 import com.tematikhonov.cinemasearcher.view.details.CinemaLoader
 import com.tematikhonov.cinemasearcher.view.details.CinemaLoaderListener
@@ -73,7 +72,7 @@ class CinemaFragment : Fragment(), CinemaLoaderListener {
         super.onActivityCreated(savedInstanceState)
         arguments?.getParcelable<CinemaDTO>(BUNDLE_EXTRA)?.apply {
             cinemaLocal = this
-            CinemaLoader(this@CinemaFragment, this.movie_id).loadCinema()
+            CinemaLoader(this@CinemaFragment, this.id).loadCinema()
         }
     }
 }

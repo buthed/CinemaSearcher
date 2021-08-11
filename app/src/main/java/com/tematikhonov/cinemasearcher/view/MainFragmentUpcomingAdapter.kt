@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.tematikhonov.cinemasearcher.databinding.MainFragmentRecyclerItemBinding
-import com.tematikhonov.cinemasearcher.model.Cinema
 import com.tematikhonov.cinemasearcher.model.CinemaDTO
 
 class MainFragmentUpcomingAdapter(private var itemClickListener:

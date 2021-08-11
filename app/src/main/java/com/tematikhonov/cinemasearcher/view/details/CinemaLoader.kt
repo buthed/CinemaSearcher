@@ -1,26 +1,22 @@
 package com.tematikhonov.cinemasearcher.view.details
 
-import android.os.Build
 import android.os.Handler
-import androidx.annotation.RequiresApi
 import com.google.gson.Gson
 import com.tematikhonov.cinemasearcher.model.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.net.MalformedURLException
 import java.net.URL
-import java.util.stream.Collectors
 import javax.net.ssl.HttpsURLConnection
 
 class CinemaLoader(
         private val listener: CinemaLoaderListener,
-        private val movie_id: Int
+        private val id: Int
 ) {
     fun loadCinema() {
         val handler = Handler()
         Thread {
             try {
-                val uri = URL("https://api.themoviedb.org/3/movie/${movie_id}?api_key=${TMDB_API_KEY_VALUE}")
+                val uri = URL("${TMDB_API_CINEMA_URL}${id}?api_key=${TMDB_API_KEY_VALUE}")
                 lateinit var urlConnection: HttpsURLConnection
                 urlConnection = uri.openConnection() as HttpsURLConnection
                 urlConnection.requestMethod = "GET"
