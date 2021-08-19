@@ -1,6 +1,7 @@
 package com.tematikhonov.cinemasearcher.model
 
 const val TMDB_API_CINEMA_URL = "https://api.themoviedb.org/3/movie/"
+const val TMDB_API_CINEMA_URL_END_POINT = "2"
 const val TMDB_API_NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key="
 const val TMDB_API_UPCOMING_URL = "https://api.themoviedb.org/3/movie/upcoming?api_key="
 const val TMDB_API_KEY_NAME = "api_key"
