@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.databinding.ActivityMainBinding
+import com.tematikhonov.cinemasearcher.view.main.MainFragment
 
 class MainActivity: AppCompatActivity() {
 

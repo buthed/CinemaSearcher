@@ -1,4 +1,4 @@
-package com.tematikhonov.cinemasearcher.view
+package com.tematikhonov.cinemasearcher.view.main
 
 import android.os.Bundle
 import android.util.Log
@@ -14,11 +14,14 @@ import com.tematikhonov.cinemasearcher.databinding.MainFragmentBinding
 import com.tematikhonov.cinemasearcher.model.CinemaDTO
 import com.tematikhonov.cinemasearcher.model.NowPlayingDTO
 import com.tematikhonov.cinemasearcher.model.UpcomingDTO
+import com.tematikhonov.cinemasearcher.view.CinemaFragment
+import com.tematikhonov.cinemasearcher.view.MovieLoader
+import com.tematikhonov.cinemasearcher.view.NowPlayingLoaderListener
 import com.tematikhonov.cinemasearcher.viewmodel.AppStateMain
 import com.tematikhonov.cinemasearcher.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 
-class MainFragment : Fragment(), NowPlayingLoaderListener{
+class MainFragment : Fragment(), NowPlayingLoaderListener {
 
     private val adapterNowPlaying: MainFragmentNowPlayingAdapter =
             MainFragmentNowPlayingAdapter(object : OnItemViewClickListener {
