@@ -54,12 +54,11 @@ class CinemaFragment : Fragment(){
             binding.cardYear.text = cinema.release_date
             binding.cardRank.text = cinema.vote_average
             binding.cardOverview.text = cinema.overview
-            binding.cardBudget.text = cinema.budget.toString() + "$"
-            binding.cardRevenue.text = cinema.revenue.toString() + "$"
-            val urlPoster: String = cinemaBundle.poster_path.toString()
-            val urlBackdrop: String = cinemaBundle.backdrop_path.toString()
-            Picasso.get().load(urlPoster).into(binding.cardPoster)
-            Picasso.get().load(urlBackdrop).into(binding.cardBackdrop)
+            binding.cardBudget.text = "${cinema.budget} $"
+            binding.cardRevenue.text = "${cinema.revenue} $"
+            Picasso.get().load("$TMDB_POSTER_PATH${cinema.poster_path.toString()}").into(binding.cardPoster)
+            Picasso.get().load("$TMDB_BACKDROP_PATH${cinema.backdrop_path.toString()}").into(binding.cardBackdrop)
+
         }
 
     }
