@@ -56,8 +56,7 @@ class CinemaFragment : Fragment(){
             binding.cardOverview.text = cinema.overview
             binding.cardBudget.text = "${cinema.budget} $"
             binding.cardRevenue.text = "${cinema.revenue} $"
-            Picasso.get().load("$TMDB_POSTER_PATH${cinema.poster_path.toString()}").into(binding.cardPoster)
-            Picasso.get().load("$TMDB_BACKDROP_PATH${cinema.backdrop_path.toString()}").into(binding.cardBackdrop)
+
 
         }
 
