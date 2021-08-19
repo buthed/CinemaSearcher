@@ -1,9 +1,11 @@
 package com.tematikhonov.cinemasearcher.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.databinding.ActivityMainBinding
+
 
 class MainActivity: AppCompatActivity() {
 
@@ -19,5 +21,7 @@ class MainActivity: AppCompatActivity() {
                     .replace(R.id.container, MainFragment.newInstance())
                     .commit()
         }
+
     }
+
 }
