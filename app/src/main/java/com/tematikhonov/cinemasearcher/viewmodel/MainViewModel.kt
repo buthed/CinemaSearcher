@@ -2,12 +2,13 @@ package com.tematikhonov.cinemasearcher.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.tematikhonov.cinemasearcher.model.Repository
-import com.tematikhonov.cinemasearcher.model.RepositoryImpl
+import com.tematikhonov.cinemasearcher.repository.Repository
+import com.tematikhonov.cinemasearcher.repository.RepositoryImpl
 import java.lang.Thread.sleep
 
 class MainViewModel(private val liveDataObserverMain : MutableLiveData<AppStateMain> = MutableLiveData(),
-                    val repository: Repository = RepositoryImpl()) : ViewModel() {
+                    val repository: Repository = RepositoryImpl()
+) : ViewModel() {
 
     fun getLiveDataMain() = liveDataObserverMain
 
@@ -18,7 +19,7 @@ class MainViewModel(private val liveDataObserverMain : MutableLiveData<AppStateM
     Thread {
         with(liveDataObserverMain) {
                 postValue(AppStateMain.Loading)
-                sleep(4000)
+                sleep(2000)
         }
     }.start()
     }
@@ -27,7 +28,7 @@ class MainViewModel(private val liveDataObserverMain : MutableLiveData<AppStateM
     Thread {
         with(liveDataObserverMain) {
             postValue(AppStateMain.Loading)
-            sleep(4000)
+            sleep(2000)
         }
     }.start()
 }

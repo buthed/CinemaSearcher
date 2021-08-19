@@ -1,4 +1,7 @@
-package com.tematikhonov.cinemasearcher.model
+package com.tematikhonov.cinemasearcher.repository
+
+import com.tematikhonov.cinemasearcher.model.Cinema
+import com.tematikhonov.cinemasearcher.model.getCinemasListNowPlaying
 
 
 class RepositoryImpl : Repository {

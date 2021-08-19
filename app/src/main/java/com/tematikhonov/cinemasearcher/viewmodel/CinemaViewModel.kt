@@ -2,12 +2,13 @@ package com.tematikhonov.cinemasearcher.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.tematikhonov.cinemasearcher.model.Repository
-import com.tematikhonov.cinemasearcher.model.RepositoryImpl
+import com.tematikhonov.cinemasearcher.repository.Repository
+import com.tematikhonov.cinemasearcher.repository.RepositoryImpl
 
 
 class CinemaViewModel(val liveDataObserverCinema : MutableLiveData<AppState> = MutableLiveData(),
-                      val repository: Repository = RepositoryImpl()) : ViewModel() {
+                      val repository: Repository = RepositoryImpl()
+) : ViewModel() {
 
     fun getLiveDataCinema() = liveDataObserverCinema
 

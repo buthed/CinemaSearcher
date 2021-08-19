@@ -50,7 +50,9 @@ class MainFragment : Fragment(), NowPlayingLoaderListener{
         }
     })
 
-    lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by lazy {
+        ViewModelProvider(this).get(MainViewModel::class.java)
+    }
 
     var _binding: MainFragmentBinding? = null
     private val binding: MainFragmentBinding
@@ -69,7 +71,7 @@ class MainFragment : Fragment(), NowPlayingLoaderListener{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        //viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         viewModel. getLiveDataMain().observe(viewLifecycleOwner, Observer { renderData(it) })
         viewModel.getCinemaListNowPlaying()
         viewModel.getCinemaListUpcoming()
