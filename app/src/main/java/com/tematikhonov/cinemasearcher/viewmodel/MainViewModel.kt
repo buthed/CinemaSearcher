@@ -31,5 +31,5 @@ class MainViewModel(private val liveDataObserverMain : MutableLiveData<AppStateM
             sleep(2000)
         }
     }.start()
-}
+    }
 }

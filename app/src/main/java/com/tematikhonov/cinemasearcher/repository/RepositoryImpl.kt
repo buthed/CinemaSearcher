@@ -7,5 +7,4 @@ class RepositoryImpl : Repository {
     override fun getCinemaListFromLocalSource(): Cinema {
         TODO("Not yet implemented")
     }
-
 }

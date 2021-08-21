@@ -4,8 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tematikhonov.cinemasearcher.repository.Repository
 import com.tematikhonov.cinemasearcher.repository.RepositoryImpl
-import com.tematikhonov.cinemasearcher.repository.CinemaRepository
-import com.tematikhonov.cinemasearcher.repository.CinemaRepositoryImpl
 
 
 class CinemaViewModel(val liveDataObserverCinema : MutableLiveData<AppState> = MutableLiveData(),

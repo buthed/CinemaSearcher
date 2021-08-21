@@ -29,8 +29,6 @@ class CinemaFragment : Fragment(){
             return _binding!!
         }
 
-
-
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -75,23 +73,6 @@ class CinemaFragment : Fragment(){
 
             val request: Request = builder.build()
             val call: Call =client.newCall(request)
-
-            //асинхронный запрос
-            /*call.enqueue( object : Callback {
-                override fun onResponse(call: Call, response: Response) {
-                    val serverResponse:String? = response.body()?.string()
-                    if(response.isSuccessful&&serverResponse!=null){
-                        requireActivity().runOnUiThread(Runnable {
-                            renderData(Gson().fromJson(serverResponse,CinemaDTO::class.java))
-                        })
-                    }else{
-                        //TODO("Ответ нас не устраивает")
-                    }
-                }
-                override fun onFailure(call: Call, e: IOException) {
-                    //TODO("Не удалось связаться с сервером")
-                }
-            })*/
 
             Thread {
             // action1
