@@ -1,4 +1,4 @@
-package com.tematikhonov.cinemasearcher.view
+package com.tematikhonov.cinemasearcher.view.main
 
 import android.view.LayoutInflater
 import android.view.View
