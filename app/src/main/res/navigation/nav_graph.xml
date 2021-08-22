@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_main">
+
+    <fragment
+        android:id="@+id/nav_main"
+        android:name="com.tematikhonov.cinemasearcher.view.main.MainFragment"
+        android:label="MainFragment" />
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.tematikhonov.cinemasearcher.view.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="com.tematikhonov.cinemasearcher.FavoritsFragment"
+        android:label="FavoritsFragment" />
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.tematikhonov.cinemasearcher.view.HistoryFragment"
+        android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.tematikhonov.cinemasearcher.LoginFragment"
+        android:label="login_fragment" />
+
+
+</navigation>

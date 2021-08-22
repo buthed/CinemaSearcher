@@ -21,4 +21,6 @@
     <string name="menu_favorites">Favorites</string>
     <string name="menu_history">History</string>
     <string name="menu_login">Login</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

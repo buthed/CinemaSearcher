@@ -29,7 +29,7 @@ class MainFragment : Fragment(), NowPlayingLoaderListener {
                 override fun onItemViewClick(cinema: CinemaDTO) {
                     activity?.supportFragmentManager?.apply {
                         beginTransaction()
-                                .add(R.id.container, CinemaFragment.newInstance(Bundle().apply {
+                                .replace(R.id.container, CinemaFragment.newInstance(Bundle().apply {
                                     putParcelable(CinemaFragment.BUNDLE_EXTRA, cinema)
                                 }))
                                 .addToBackStack("")
@@ -44,7 +44,7 @@ class MainFragment : Fragment(), NowPlayingLoaderListener {
         override fun onItemViewClick(cinema: CinemaDTO) {
             activity?.supportFragmentManager?.apply {
                 beginTransaction()
-                        .add(R.id.container, CinemaFragment.newInstance(Bundle().apply {
+                        .replace(R.id.container, CinemaFragment.newInstance(Bundle().apply {
                             putParcelable(CinemaFragment.BUNDLE_EXTRA, cinema)
                         }))
                         .addToBackStack("")
@@ -72,14 +72,20 @@ class MainFragment : Fragment(), NowPlayingLoaderListener {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
         //viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         viewModel. getLiveDataMain().observe(viewLifecycleOwner, Observer { renderData(it) })
         viewModel.getCinemaListNowPlaying()
         viewModel.getCinemaListUpcoming()
         MovieLoader(this).loadNowPlayingList()
         MovieLoader(this).loadUpcoming()
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 
     override fun onDestroy() {
