@@ -72,11 +72,11 @@ class MainFragment : Fragment(), NowPlayingLoaderListener {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-        //viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //iewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         viewModel. getLiveDataMain().observe(viewLifecycleOwner, Observer { renderData(it) })
         viewModel.getCinemaListNowPlaying()
         viewModel.getCinemaListUpcoming()
