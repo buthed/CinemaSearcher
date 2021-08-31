@@ -1,14 +1,12 @@
 package com.tematikhonov.cinemasearcher.viewmodel
 
-import android.os.Parcel
-import android.os.Parcelable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tematikhonov.cinemasearcher.app.App
 import com.tematikhonov.cinemasearcher.model.Cinema
 import com.tematikhonov.cinemasearcher.model.CinemaDTO
+import com.tematikhonov.cinemasearcher.model.convertCinemaDtoToModel
 import com.tematikhonov.cinemasearcher.repository.*
-import com.tematikhonov.cinemasearcher.room.HistoryDao
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

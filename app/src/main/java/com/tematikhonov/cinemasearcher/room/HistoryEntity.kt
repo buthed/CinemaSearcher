@@ -9,6 +9,7 @@ import androidx.room.PrimaryKey
 data class HistoryEntity(
         @PrimaryKey(autoGenerate = true)
         val id: Long,
+        val movie_id: Int?,
         val title: String?,
         val release_date: String?,
         val vote_average: String?,

@@ -14,7 +14,6 @@ import com.tematikhonov.cinemasearcher.model.*
 import com.tematikhonov.cinemasearcher.viewmodel.AppState
 import com.tematikhonov.cinemasearcher.viewmodel.CinemaViewModel
 import okhttp3.*
-import java.io.IOException
 
 class CinemaFragment : Fragment(){
 
@@ -82,7 +81,7 @@ class CinemaFragment : Fragment(){
         _binding = null
     }
 
-    private fun setData(cinema:CinemaDTO){
+    private fun setData(cinema: Cinema){
         binding.mainView.visibility = View.VISIBLE
         binding.loadingLayoutForCard.visibility = View.GONE
 
@@ -118,7 +117,7 @@ class CinemaFragment : Fragment(){
                 val response:Response = call.execute()
                 val serverResponse:String? = response.body()?.string()
                 requireActivity().runOnUiThread(Runnable {
-                    setData(Gson().fromJson(serverResponse,CinemaDTO::class.java))
+                    setData(Gson().fromJson(serverResponse,Cinema::class.java))
                 })
                 // action2
              }.start()

@@ -6,4 +6,5 @@ import com.tematikhonov.cinemasearcher.model.CinemaDTO
 interface HistoryRepository {
     fun getAllHistory(): List<Cinema>
     fun saveEntity(cinema: Cinema)
+    fun deleteEntityByName(name:String)
 }
