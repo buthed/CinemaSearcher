@@ -18,13 +18,13 @@
         android:name="com.tematikhonov.cinemasearcher.FavoritsFragment"
         android:label="FavoritsFragment" />
     <fragment
-        android:id="@+id/nav_history"
-        android:name="com.tematikhonov.cinemasearcher.view.HistoryFragment"
-        android:label="HistoryFragment" />
-    <fragment
         android:id="@+id/nav_login"
         android:name="com.tematikhonov.cinemasearcher.LoginFragment"
         android:label="login_fragment" />
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.tematikhonov.cinemasearcher.view.history.HistoryFragment"
+        android:label="HistoryFragment" />
 
 
 </navigation>

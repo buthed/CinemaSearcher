@@ -11,8 +11,11 @@
         android:id="@+id/historyRecyclerView"
         android:layout_width="match_parent"
         android:background="@color/purple_500"
-        android:layout_height="200dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="1"
+        tools:listitem="@layout/history_fragment_recycler_item"/>
 
     <FrameLayout
         android:id="@+id/loadingLayout"

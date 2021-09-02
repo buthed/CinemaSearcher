@@ -85,6 +85,8 @@ class CinemaFragment : Fragment(){
         binding.mainView.visibility = View.VISIBLE
         binding.loadingLayoutForCard.visibility = View.GONE
 
+        viewModel.saveCinemaToDb(cinema)
+
         cinemaBundle?.let{ cinemaBundle:CinemaDTO->
             binding.cardTitle.text = cinema.title
             binding.cardYear.text = cinema.release_date

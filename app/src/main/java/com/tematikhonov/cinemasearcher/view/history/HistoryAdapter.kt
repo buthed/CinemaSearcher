@@ -5,8 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.model.Cinema
+import com.tematikhonov.cinemasearcher.model.TMDB_POSTER_PATH
 import kotlinx.android.synthetic.main.history_fragment.view.*
 import kotlinx.android.synthetic.main.history_fragment_recycler_item.view.*
 
@@ -43,8 +45,9 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.RecyclerItemViewHolde
 
         fun bind(data: Cinema) {
             if (layoutPosition != RecyclerView.NO_POSITION) {
-                itemView.textViewHistory.text =
-                        String.format("%s %d %s", data.title)
+                itemView.titleHistory.text = data.title
+                itemView.dateHistory.text = data.release_date
+                Picasso.get().load("$TMDB_POSTER_PATH${data.poster_path.toString()}").into(itemView.posterHistory)
                 itemView.setOnClickListener {
                     Toast.makeText(
                             itemView.context,
