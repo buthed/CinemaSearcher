@@ -42,6 +42,18 @@
         app:layout_constraintTop_toBottomOf="@id/titleHistory"
         tools:text="Date of cinema" />
 
+    <TextView
+        android:id="@+id/noteHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:textColor="@color/teal_700"
+        android:textSize="@dimen/text_of_cinema"
+        android:layout_marginStart="@dimen/margin_5_dp"
+        app:layout_constraintStart_toEndOf="@+id/posterHistory"
+        app:layout_constraintTop_toBottomOf="@id/dateHistory"
+        tools:text="Date of cinema" />
+
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/favoriteHistory"
         android:layout_width="@dimen/margin_20_dp"
