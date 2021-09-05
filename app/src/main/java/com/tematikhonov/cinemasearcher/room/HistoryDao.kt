@@ -14,8 +14,17 @@ interface HistoryDao {
     @Query("SELECT * FROM HistoryEntity WHERE title LIKE :titleCinema")
     fun selectByWord(titleCinema: String): List<HistoryEntity>
 
+    @Query("SELECT * FROM HistoryEntity WHERE isLike=:like")
+    fun selectAllFavorites(like: Byte): List<HistoryEntity>
+
+
     @Query("DELETE FROM HistoryEntity WHERE title=:cityName")
     fun deleteByWordTestDelete(cityName: String)
+
+    @Query("DELETE FROM HistoryEntity")
+    fun deleteAllHistory()
+
+
 
     @Insert(onConflict = IGNORE)
     fun insert(historyEntity: HistoryEntity)

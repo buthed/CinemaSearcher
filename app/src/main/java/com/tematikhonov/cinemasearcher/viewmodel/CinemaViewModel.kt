@@ -31,6 +31,8 @@ class CinemaViewModel(
     }
 
 
+
+
     private val callBack = object : Callback<CinemaDTO> {
 
         override fun onResponse(call: Call<CinemaDTO>, response: Response<CinemaDTO>) {

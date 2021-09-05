@@ -14,7 +14,9 @@ data class Cinema(
         val revenue: Int? = 8176544,
         val poster_path: String? = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hUwvcDAZG0nbVQokqZh1oQt8Cpm.jpg",
         val backdrop_path: String? = "https://www.themoviedb.org/t/p/original/znV3ucZoH7g7MHZwjW7MlXzo5Pl.jpg",
-        val overview: String?  = "Cinema"
+        val overview: String?  = "Cinema",
+        var note: String? = "Default note",
+        var isLike: Byte? = 0
 ): Parcelable
 
 

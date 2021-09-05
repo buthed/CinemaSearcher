@@ -20,5 +20,10 @@ class HistoryRepositoryImpl(private val historyDao: HistoryDao): HistoryReposito
     override fun deleteEntityByName(name: String) {
         historyDao.deleteByWordTestDelete(name)
     }
+
+    override fun deleteAllHitstory() {
+        historyDao.deleteAllHistory()
+    }
+
 }
 

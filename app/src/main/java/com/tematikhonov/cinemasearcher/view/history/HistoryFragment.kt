@@ -30,9 +30,10 @@ class HistoryFragment : Fragment(), OnClickAdapterItem {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel.getLiveData().observe(viewLifecycleOwner, Observer { renderData(it) })
         viewModel.getAllHistory()
+
+        binding.historyDeleteButton.setOnClickListener { viewModel.deleteAllHistory() }
     }
 
     private fun renderData(appState: AppState) {

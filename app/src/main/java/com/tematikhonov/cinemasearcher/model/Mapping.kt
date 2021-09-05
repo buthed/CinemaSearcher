@@ -45,5 +45,8 @@ fun convertModelToEntity(cinema: Cinema): HistoryEntity {
             cinema.revenue,
             cinema.poster_path,
             cinema.backdrop_path,
-            cinema.overview)
+            cinema.overview,
+            cinema.note,
+            cinema.isLike!!
+    )
 }

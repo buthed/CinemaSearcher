@@ -21,4 +21,10 @@ class HistoryViewModel(
         historyRepository.deleteEntityByName(name)
         liveDataObserver.value = AppState.Success(historyRepository.getAllHistory())
     }
+
+    fun deleteAllHistory() {
+        Thread {
+            historyRepository.deleteAllHitstory()
+        }.start()
+    }
 }

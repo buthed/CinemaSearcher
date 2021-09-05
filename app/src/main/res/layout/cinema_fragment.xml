@@ -153,6 +153,11 @@
             android:inputType="textPersonName"
             android:text="Write your note about cinema" />
 
+        <Button
+            android:id="@+id/cardNoteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save note"/>
         <FrameLayout
             android:id="@+id/loadingLayoutForCard"
             android:layout_width="match_parent"

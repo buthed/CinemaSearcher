@@ -18,6 +18,7 @@ data class HistoryEntity(
         val poster_path: String?,
         val backdrop_path: String?,
         val overview: String?,
-//        val note: String?,
+        val note: String?,
+        val isLike: Byte = 0
 //        val looking_time: String?
 )

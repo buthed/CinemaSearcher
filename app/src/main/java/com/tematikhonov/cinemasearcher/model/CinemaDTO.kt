@@ -13,7 +13,9 @@ data class CinemaDTO(
         val revenue: Int?,
         val poster_path: String?,
         val backdrop_path: String?,
-        val overview: String?
+        val overview: String?,
+        var note: String?,
+        var isLike: Byte? = 0
 ): Parcelable
 
 data class NowPlayingDTO(val results:List<CinemaDTO>)

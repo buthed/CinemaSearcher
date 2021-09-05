@@ -57,6 +57,8 @@ class CinemaFragment : Fragment(){
         cinemaBundle?.let { viewModel.getCinemaFromServer(it.id) }
     }
 
+
+
     private fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Error -> {

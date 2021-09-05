@@ -7,6 +7,12 @@
     android:background="@color/preblack"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/history_delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/history_delete_button"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/historyRecyclerView"
         android:layout_width="match_parent"

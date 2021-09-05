@@ -24,4 +24,5 @@
 
     //Settings page
     <string name="adult_switch">Adult content</string>
+    <string name="history_delete_button">Delete all history</string>
 </resources>
