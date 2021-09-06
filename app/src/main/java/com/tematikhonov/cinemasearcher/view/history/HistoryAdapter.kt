@@ -47,6 +47,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.RecyclerItemViewHolde
             if (layoutPosition != RecyclerView.NO_POSITION) {
                 itemView.titleHistory.text = data.title
                 itemView.dateHistory.text = data.release_date
+                itemView.noteHistory.text = data.note
                 Picasso.get().load("$TMDB_POSTER_PATH${data.poster_path.toString()}").into(itemView.posterHistory)
                 itemView.setOnClickListener {
                     Toast.makeText(
