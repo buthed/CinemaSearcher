@@ -52,14 +52,6 @@
         tools:itemCount="3"
         tools:listitem="@layout/main_fragment_recycler_item"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_navigation_menu"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
     <FrameLayout
         android:id="@+id/loadingLayout"
         android:layout_width="match_parent"

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemContainer"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@color/preblack">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/posterHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/thisisengland"
+        android:layout_margin="@dimen/margin_10_dp"/>
+
+
+    <TextView
+        android:id="@+id/titleHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title_of_cinema"
+        android:layout_marginStart="@dimen/margin_5_dp"
+        app:layout_constraintStart_toEndOf="@+id/posterHistory"
+        app:layout_constraintTop_toTopOf="@id/posterHistory"
+        tools:text="Name of cinema" />
+
+    <TextView
+        android:id="@+id/dateHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_of_cinema"
+        android:layout_marginStart="@dimen/margin_5_dp"
+        app:layout_constraintStart_toEndOf="@+id/posterHistory"
+        app:layout_constraintTop_toBottomOf="@id/titleHistory"
+        tools:text="Date of cinema" />
+
+    <TextView
+        android:id="@+id/noteHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:textColor="@color/teal_700"
+        android:textSize="@dimen/text_of_cinema"
+        android:layout_marginStart="@dimen/margin_5_dp"
+        app:layout_constraintStart_toEndOf="@+id/posterHistory"
+        app:layout_constraintTop_toBottomOf="@id/dateHistory"
+        tools:text="Date of cinema" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/favoriteHistory"
+        android:layout_width="@dimen/margin_20_dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/margin_20_dp"
+        android:layout_weight="2"
+        android:button="@drawable/custom_checkbox"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginVertical="@dimen/margin_15_dp"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

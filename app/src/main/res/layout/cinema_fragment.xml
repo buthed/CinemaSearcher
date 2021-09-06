@@ -140,7 +140,24 @@
             app:layout_constraintTop_toBottomOf="@id/cardTitleBottomBarrier"
             tools:text="@string/test_overview"/>
 
+        <EditText
+            android:id="@+id/cardNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_20_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardOverview"
+            android:textColor="@color/teal_700"
+            android:ems="10"
+            android:imeOptions="actionGo"
+            android:inputType="textPersonName"
+            android:text="Write your note about cinema" />
 
+        <Button
+            android:id="@+id/cardNoteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save note"/>
         <FrameLayout
             android:id="@+id/loadingLayoutForCard"
             android:layout_width="match_parent"
@@ -155,7 +172,4 @@
                 android:layout_gravity="center" />
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 </ScrollView>

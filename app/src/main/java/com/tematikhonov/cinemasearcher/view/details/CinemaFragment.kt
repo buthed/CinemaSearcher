@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import com.tematikhonov.cinemasearcher.databinding.CinemaFragmentBinding
 import com.tematikhonov.cinemasearcher.model.*
+import com.tematikhonov.cinemasearcher.viewmodel.AppState
+import com.tematikhonov.cinemasearcher.viewmodel.CinemaViewModel
 import okhttp3.*
-import java.io.IOException
 
 class CinemaFragment : Fragment(){
 
@@ -23,11 +26,16 @@ class CinemaFragment : Fragment(){
         }
     }
 
+
     private var _binding:CinemaFragmentBinding? = null
     private val binding:CinemaFragmentBinding
         get() :CinemaFragmentBinding{
             return _binding!!
         }
+
+    private val viewModel: CinemaViewModel by lazy {
+        ViewModelProvider(this).get(CinemaViewModel::class.java)
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -38,14 +46,48 @@ class CinemaFragment : Fragment(){
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.getLiveDataCinema().observe(viewLifecycleOwner, Observer {
+            renderData(it)
+        })
+        arguments?.getParcelable<CinemaDTO>(BUNDLE_EXTRA)?.apply {
+            cinemaBundle = this
+        }
+        cinemaBundle?.let { viewModel.getCinemaFromServer(it.id) }
+    }
+
+
+
+    private fun renderData(appState: AppState) {
+        when (appState) {
+            is AppState.Error -> {
+                binding.mainView.visibility = View.VISIBLE
+                binding.loadingLayoutForCard.visibility = View.GONE
+                //TODO вывести ошибку
+            }
+            AppState.Loading -> {
+                binding.mainView.visibility = View.GONE
+                binding.loadingLayoutForCard.visibility = View.VISIBLE
+            }
+            is AppState.Success -> {
+                binding.mainView.visibility = View.VISIBLE
+                binding.loadingLayoutForCard.visibility = View.GONE
+                setData(appState.dataCinema[0]) //FIXME
+            }
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
 
-    fun renderData(cinema:CinemaDTO){
+    private fun setData(cinema: Cinema){
         binding.mainView.visibility = View.VISIBLE
         binding.loadingLayoutForCard.visibility = View.GONE
+
+        viewModel.saveCinemaToDb(cinema)
 
         cinemaBundle?.let{ cinemaBundle:CinemaDTO->
             binding.cardTitle.text = cinema.title
@@ -62,7 +104,7 @@ class CinemaFragment : Fragment(){
 
     var cinemaBundle:CinemaDTO? = null
 
-    fun getCinema(){
+    private fun getCinema(){
         //binding.mainView.visibility = View.GONE
         binding.loadingLayoutForCard.visibility = View.VISIBLE
         cinemaBundle?.let{
@@ -79,18 +121,10 @@ class CinemaFragment : Fragment(){
                 val response:Response = call.execute()
                 val serverResponse:String? = response.body()?.string()
                 requireActivity().runOnUiThread(Runnable {
-                    renderData(Gson().fromJson(serverResponse,CinemaDTO::class.java))
+                    setData(Gson().fromJson(serverResponse,Cinema::class.java))
                 })
                 // action2
              }.start()
-        }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        arguments?.getParcelable<CinemaDTO>(BUNDLE_EXTRA)?.apply {
-            cinemaBundle = this
-            getCinema()
         }
     }
 }
