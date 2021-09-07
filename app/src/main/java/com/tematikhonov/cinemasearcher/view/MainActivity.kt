@@ -2,10 +2,7 @@ package com.tematikhonov.cinemasearcher.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
@@ -38,7 +35,7 @@ class MainActivity: AppCompatActivity() {
                 R.id.nav_search,
                 R.id.nav_favorites,
                 R.id.nav_history,
-                R.id.nav_login))
+                R.id.settings_login))
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
     }

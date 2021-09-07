@@ -26,4 +26,9 @@
     <string name="adult_switch">Adult content</string>
     <string name="history_delete_button">Delete all history</string>
     <string name="contacts">Contacts</string>
+    <string name="menu_contacts">Contacts</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="phone_number">+76665554433</string>
+    <string name="contacts_info">Hello, My name is Artem. I am study for Android developer. This is one of my first projects. You can call me by phone(this number is not in service)</string>
 </resources>

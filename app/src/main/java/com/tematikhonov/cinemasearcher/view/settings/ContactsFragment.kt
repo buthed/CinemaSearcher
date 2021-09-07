@@ -1,4 +1,4 @@
-package com.tematikhonov.cinemasearcher.view
+package com.tematikhonov.cinemasearcher.view.settings
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.tematikhonov.cinemasearcher.R
 
-class SearchFragment : Fragment() {
+class ContactsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -19,6 +18,6 @@ class SearchFragment : Fragment() {
             savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.search_fragment_, container, false)
+        return inflater.inflate(R.layout.contacts_fragment, container, false)
     }
 }

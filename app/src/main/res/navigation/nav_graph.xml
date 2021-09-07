@@ -18,13 +18,20 @@
         android:name="com.tematikhonov.cinemasearcher.FavoritsFragment"
         android:label="FavoritsFragment" />
     <fragment
-        android:id="@+id/nav_login"
-        android:name="com.tematikhonov.cinemasearcher.LoginFragment"
-        android:label="login_fragment" />
+        android:id="@+id/settings_login"
+        android:name="com.tematikhonov.cinemasearcher.view.settings.SettingsFragment"
+        android:label="settings_fragment" >
+        <action
+            android:id="@+id/action_settings_login_to_contactsFragment"
+            app:destination="@id/nav_contacts" />
+    </fragment>
     <fragment
         android:id="@+id/nav_history"
         android:name="com.tematikhonov.cinemasearcher.view.history.HistoryFragment"
         android:label="HistoryFragment" />
-
-
+    <fragment
+        android:id="@+id/nav_contacts"
+        android:name="com.tematikhonov.cinemasearcher.view.settings.ContactsFragment"
+        android:label="contacts_fragment"
+        tools:layout="@layout/contacts_fragment" />
 </navigation>
