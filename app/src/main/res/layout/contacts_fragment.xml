@@ -30,7 +30,7 @@
         android:text="Phone:"/>
 
     <TextView
-        android:id="@+id/editTextPhone"
+        android:id="@+id/contacts_phone_number"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
