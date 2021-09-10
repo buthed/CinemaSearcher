@@ -1,6 +1,7 @@
 package com.tematikhonov.cinemasearcher.view.history
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -44,7 +45,10 @@ class HistoryFragment : Fragment(), OnClickAdapterItem {
                         .commit()
             }
         }
-        binding.historySearchButton.setOnClickListener { viewModel.searchByAllHistory(binding.historySearchInput.text.toString()) }
+        binding.historySearchButton.setOnClickListener {
+            viewModel.searchByAllHistory(binding.historySearchInput.text.toString())
+            Log.d("History", binding.historySearchInput.text.toString())
+        }
     }
 
     private fun renderData(appState: AppState) {

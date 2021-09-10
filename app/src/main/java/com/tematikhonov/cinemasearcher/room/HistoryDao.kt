@@ -11,7 +11,7 @@ interface HistoryDao {
     @Query("SELECT * FROM HistoryEntity")
     fun selectAll(): List<HistoryEntity>
 
-    @Query("SELECT * FROM HistoryEntity WHERE title LIKE :titleCinema")
+    @Query("SELECT * FROM HistoryEntity WHERE title LIKE '%' || :titleCinema || '%'")
     fun searchByAllHistory(titleCinema: String): List<HistoryEntity>
 
     @Query("SELECT * FROM HistoryEntity WHERE isLike=:like")

@@ -12,8 +12,8 @@ class HistoryViewModel(
 
 
     fun getAllHistory(){
-        liveDataObserver.value = AppState.Loading
-        liveDataObserver.value = AppState.Success(historyRepository.getAllHistory())
+            liveDataObserver.value = AppState.Loading
+            liveDataObserver.value = AppState.Success(historyRepository.getAllHistory())
     }
 
     fun deleteByName(name:String) {
@@ -29,8 +29,7 @@ class HistoryViewModel(
     }
 
     fun searchByAllHistory(titleCinema: String) {
-        Thread {
             historyRepository.searchByAllHistory(titleCinema)
-        }.start()
+            liveDataObserver.value = AppState.Success(historyRepository.getAllHistory())
     }
 }
