@@ -8,4 +8,5 @@ interface HistoryRepository {
     fun saveEntity(cinema: Cinema)
     fun deleteEntityByName(name:String)
     fun deleteAllHitstory()
+    fun searchByAllHistory(titleCinema: String)
 }

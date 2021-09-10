@@ -31,4 +31,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="phone_number">+76665554433</string>
     <string name="contacts_info">Hello, My name is Artem. I am study for Android developer. This is one of my first projects. You can call me by phone(this number is not in service)</string>
+    <string name="history_search_button">Search</string>
 </resources>

@@ -27,4 +27,10 @@ class HistoryViewModel(
             historyRepository.deleteAllHitstory()
         }.start()
     }
+
+    fun searchByAllHistory(titleCinema: String) {
+        Thread {
+            historyRepository.searchByAllHistory(titleCinema)
+        }.start()
+    }
 }

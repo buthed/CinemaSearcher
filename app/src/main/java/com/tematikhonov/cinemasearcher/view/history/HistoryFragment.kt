@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.databinding.HistoryFragmentBinding
+import com.tematikhonov.cinemasearcher.view.CinemaFragment
+import com.tematikhonov.cinemasearcher.view.main.MainFragment
 import com.tematikhonov.cinemasearcher.viewmodel.AppState
 import com.tematikhonov.cinemasearcher.viewmodel.HistoryViewModel
 
@@ -33,7 +36,15 @@ class HistoryFragment : Fragment(), OnClickAdapterItem {
         viewModel.getLiveData().observe(viewLifecycleOwner, Observer { renderData(it) })
         viewModel.getAllHistory()
 
-        binding.historyDeleteButton.setOnClickListener { viewModel.deleteAllHistory() }
+        binding.historyDeleteButton.setOnClickListener {
+            viewModel.deleteAllHistory()
+            activity?.supportFragmentManager?.apply {
+                beginTransaction()
+                        .replace(R.id.container, HistoryFragment.newInstance() )
+                        .commit()
+            }
+        }
+        binding.historySearchButton.setOnClickListener { viewModel.searchByAllHistory(binding.historySearchInput.text.toString()) }
     }
 
     private fun renderData(appState: AppState) {
@@ -70,9 +81,7 @@ class HistoryFragment : Fragment(), OnClickAdapterItem {
     }
 
     companion object {
-        @JvmStatic
-        fun newInstance() =
-                HistoryFragment()
+        fun newInstance() = HistoryFragment()
     }
 
     override fun onItemClick(name:String, posiotion: Int) {

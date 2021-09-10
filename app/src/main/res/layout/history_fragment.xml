@@ -13,6 +13,19 @@
         android:layout_height="wrap_content"
         android:text="@string/history_delete_button"/>
 
+    <Button
+        android:id="@+id/history_search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/history_search_button"/>
+
+    <EditText
+        android:id="@+id/history_search_input"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/historyRecyclerView"
         android:layout_width="match_parent"
