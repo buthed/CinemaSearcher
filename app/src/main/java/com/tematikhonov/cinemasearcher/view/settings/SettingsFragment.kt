@@ -1,26 +1,26 @@
-package com.tematikhonov.cinemasearcher
+package com.tematikhonov.cinemasearcher.view.settings
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.tematikhonov.cinemasearcher.databinding.CinemaFragmentBinding
-import com.tematikhonov.cinemasearcher.databinding.LoginFragmentBinding
+import androidx.appcompat.widget.AppCompatButton
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
+import com.tematikhonov.cinemasearcher.R
+import com.tematikhonov.cinemasearcher.databinding.SettingsFragmentBinding
 import com.tematikhonov.cinemasearcher.model.ADULT_MODE
-import com.tematikhonov.cinemasearcher.view.CinemaFragment
-import kotlinx.android.synthetic.main.login_fragment.*
+import kotlinx.android.synthetic.main.settings_fragment.*
 
 
-class LoginFragment : Fragment() {
+class SettingsFragment : Fragment() {
 
-    private var _binding: LoginFragmentBinding? = null
-    private val binding: LoginFragmentBinding
-        get() :LoginFragmentBinding {
+    private var _binding: SettingsFragmentBinding? = null
+    private val binding: SettingsFragmentBinding
+        get() :SettingsFragmentBinding {
             return _binding!!
         }
 
@@ -29,12 +29,16 @@ class LoginFragment : Fragment() {
             savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.login_fragment, container, false)
+        return inflater.inflate(R.layout.settings_fragment, container, false)
         loadData()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val contactsButton = view.findViewById<AppCompatButton>(R.id.settings_contact_button)
+        contactsButton?.setOnClickListener {                    //TODO не  работает биндинг
+            findNavController().navigate(R.id.action_settings_login_to_contactsFragment)
+        }
     }
 
     override fun onDestroy() {
@@ -66,11 +70,10 @@ class LoginFragment : Fragment() {
     companion object {
     const val SETTINGS = "Settings"
     private const val preferencesName = "MainPreferences"
-        fun newInstance(bundle: Bundle): LoginFragment {
-            val fragment = LoginFragment()
+        fun newInstance(bundle: Bundle): SettingsFragment {
+            val fragment = SettingsFragment()
             fragment.arguments = bundle
             return fragment
         }
     }
-
 }

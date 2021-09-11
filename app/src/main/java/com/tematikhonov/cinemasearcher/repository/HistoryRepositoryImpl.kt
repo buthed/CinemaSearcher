@@ -25,5 +25,8 @@ class HistoryRepositoryImpl(private val historyDao: HistoryDao): HistoryReposito
         historyDao.deleteAllHistory()
     }
 
+    override fun searchByAllHistory(titleCinema: String) : List<Cinema> {
+        return convertToEntityModel(historyDao.searchByAllHistory(titleCinema))
+    }
 }
 

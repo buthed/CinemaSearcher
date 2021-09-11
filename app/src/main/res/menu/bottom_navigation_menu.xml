@@ -21,7 +21,7 @@
         android:icon="@drawable/icon_history"
         android:title="@string/menu_history"/>
     <item
-        android:id="@+id/nav_login"
+        android:id="@+id/settings_login"
         android:enabled="true"
         android:icon="@drawable/icon_login"
         android:title="@string/menu_login"/>

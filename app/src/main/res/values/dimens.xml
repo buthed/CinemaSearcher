@@ -4,6 +4,7 @@
     <dimen name="margin_5_dp">5dp</dimen>
     <dimen name="margin_15_dp">15dp</dimen>
     <dimen name="title_of_cinema">20sp</dimen>
+    <dimen name="title_of_fragments">40sp</dimen>
     <dimen name="text_of_cinema">15sp</dimen>
     <dimen name="item_text">10sp</dimen>
     <dimen name="margin_10_dp">10dp</dimen>

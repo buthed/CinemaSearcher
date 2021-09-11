@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/preblack"
+    tools:context=".view.settings.ContactsFragment">
+
+    <TextView
+        android:id="@+id/contacts_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_contacts"
+        android:gravity="center"
+        android:textSize="@dimen/title_of_fragments" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:textSize="@dimen/title_of_cinema"
+        android:textAlignment="center"
+        android:text="@string/contacts_info"
+        android:layout_margin="@dimen/margin_20_dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Phone:"/>
+
+    <TextView
+        android:id="@+id/contacts_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:inputType="phone"
+        android:text="@string/phone_number"
+        android:textColor="@color/white" />
+
+
+</LinearLayout>
