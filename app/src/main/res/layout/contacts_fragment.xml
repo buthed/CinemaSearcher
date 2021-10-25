@@ -41,8 +41,9 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:gravity="center"
+
         android:text="Location:"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -52,6 +53,23 @@
         android:layout_gravity="center_horizontal"
         android:backgroundTint="@color/design_default_color_primary_dark"
         android:src="@android:drawable/ic_dialog_map"
+        app:layout_constraintBottom_toTopOf="@+id/mainFragmentFAB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/fab_location_icon_size" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="Google Maps:"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/googleMapsLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/design_default_color_primary_dark"
+        android:src="@android:drawable/ic_menu_mapmode"
         app:layout_constraintBottom_toTopOf="@+id/mainFragmentFAB"
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="@dimen/fab_location_icon_size" />

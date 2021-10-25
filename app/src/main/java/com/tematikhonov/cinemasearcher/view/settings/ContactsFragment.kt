@@ -18,6 +18,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.databinding.ContactsFragmentBinding
 
@@ -174,7 +175,12 @@ class ContactsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.contactsPhoneNumber.setOnClickListener { dialContactPhone() }
         binding.mainFragmentFABLocation.setOnClickListener { showRatio() }
+        binding.googleMapsLocation.setOnClickListener { useGoogleMaps() }
 
+    }
+
+    private fun useGoogleMaps() {
+        findNavController().navigate(R.id.action_nav_contacts_to_nav_maps)
     }
 
     override fun onDestroyView() {

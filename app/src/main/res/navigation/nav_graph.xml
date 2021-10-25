@@ -33,5 +33,14 @@
         android:id="@+id/nav_contacts"
         android:name="com.tematikhonov.cinemasearcher.view.settings.ContactsFragment"
         android:label="contacts_fragment"
-        tools:layout="@layout/contacts_fragment" />
+        tools:layout="@layout/contacts_fragment" >
+        <action
+            android:id="@+id/action_nav_contacts_to_nav_maps"
+            app:destination="@id/nav_maps" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_maps"
+        android:name="com.tematikhonov.cinemasearcher.view.MapsFragment"
+        android:label="fragment_main_maps"
+        tools:layout="@layout/fragment_maps" />
 </navigation>

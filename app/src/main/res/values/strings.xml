@@ -45,5 +45,7 @@
     <string name="dialog_rationale_give_access">Предоставить доступ</string>
     <string name="dialog_rationale_decline">Не надо</string>
     <string name="dialog_address_title">Ваш адрес</string>
+    <string name="default_address">Калуга</string>
+    <string name="button_search_map">Поиск</string>
 
 </resources>
