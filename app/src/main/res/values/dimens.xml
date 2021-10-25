@@ -9,4 +9,5 @@
     <dimen name="item_text">10sp</dimen>
     <dimen name="margin_10_dp">10dp</dimen>
     <dimen name="margin_20_dp">20dp</dimen>
+    <dimen name="fab_location_icon_size">45dp</dimen>
 </resources>
