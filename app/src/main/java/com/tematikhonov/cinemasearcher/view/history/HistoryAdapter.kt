@@ -22,7 +22,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.RecyclerItemViewHolde
 
     private lateinit var listener: OnClickAdapterItem;
 
-    public fun setListener(listener:OnClickAdapterItem){
+    fun setListener(listener:OnClickAdapterItem){
         this.listener = listener
     }
 
