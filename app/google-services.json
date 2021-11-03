@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "261426208941",
+    "project_id": "cinemasearcher-da35a",
+    "storage_bucket": "cinemasearcher-da35a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261426208941:android:4bd1b5c88cd04f7bb76624",
+        "android_client_info": {
+          "package_name": "com.example.testkotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261426208941-ku83b3nc6aacbmln3sphq5pbgm0c2cds.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCekm6fZjYdLTYNVKdKvHFZ0xthPkI8DU4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261426208941-ku83b3nc6aacbmln3sphq5pbgm0c2cds.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

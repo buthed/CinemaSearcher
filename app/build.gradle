@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'com.google.gms.google-services'
 }
 
 apply plugin: 'kotlin-kapt'
@@ -47,6 +48,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'com.google.firebase:firebase-messaging:20.2.4'//FIXME
+    implementation 'com.google.firebase:firebase-core:17.2.0'
 
     //Navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.3'

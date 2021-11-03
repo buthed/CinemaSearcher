@@ -1,7 +1,12 @@
 package com.tematikhonov.cinemasearcher.view
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -10,8 +15,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.databinding.ActivityMainBinding
 import com.tematikhonov.cinemasearcher.view.main.MainFragment
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.iid.InstanceIdResult
 
 class MainActivity: AppCompatActivity() {
+
+    val CHANNEL_ID1="fisrt_channel"
+    val CHANNEL_ID2="second_channel"
+    val NOTIFICATION_ID=1
 
     lateinit var binding: ActivityMainBinding
 
@@ -24,6 +36,7 @@ class MainActivity: AppCompatActivity() {
                     .beginTransaction()
                     .replace(R.id.container, MainFragment.newInstance())
                     .commit()
+
         }
 
         //Initialize the bottom navigation view
@@ -38,5 +51,48 @@ class MainActivity: AppCompatActivity() {
                 R.id.settings_login))
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
+        //push()
+
+        /** Получаем ID клиента */
+        FirebaseInstanceId.getInstance().getInstanceId()
+            .addOnCompleteListener(OnCompleteListener<InstanceIdResult> { task ->
+                if (!task.isSuccessful) {
+                    Log.d("mylogs", task.exception.toString() + "")
+                    return@OnCompleteListener
+                }
+
+                // Get new Instance ID token
+                val token: String = task.result!!.getToken()
+                // Log and toast
+                Log.d("mylogs", token)
+            })
+    }
+
+    private fun push() {
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+
+        val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID2).apply {
+            setContentTitle("First notification")
+            setContentText("Notification text")
+            setSmallIcon(R.drawable.ic_kotlin_logo)
+            setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            createChannel(notificationManager)
+        }
+
+        notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build())
+    }
+
+    private fun createChannel(notificationManager: NotificationManager) {
+        val name = "Важное новый2"
+        val description1 = "От этого зависит судьба Земли"
+        val description2 = "Не выключай, Христа ради"
+        val importance = NotificationManager.IMPORTANCE_HIGH
+        val channel = NotificationChannel(CHANNEL_ID2, name, importance).apply {
+            description = description1
+        }
+        notificationManager.createNotificationChannel(channel)
     }
 }
