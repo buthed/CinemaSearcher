@@ -4,6 +4,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.navigation.findNavController
@@ -14,6 +15,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tematikhonov.cinemasearcher.R
 import com.tematikhonov.cinemasearcher.databinding.ActivityMainBinding
 import com.tematikhonov.cinemasearcher.view.main.MainFragment
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.iid.InstanceIdResult
 
 class MainActivity: AppCompatActivity() {
 
@@ -47,7 +51,21 @@ class MainActivity: AppCompatActivity() {
                 R.id.settings_login))
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
-        push()
+        //push()
+
+        /** Получаем ID клиента */
+        FirebaseInstanceId.getInstance().getInstanceId()
+            .addOnCompleteListener(OnCompleteListener<InstanceIdResult> { task ->
+                if (!task.isSuccessful) {
+                    Log.d("mylogs", task.exception.toString() + "")
+                    return@OnCompleteListener
+                }
+
+                // Get new Instance ID token
+                val token: String = task.result!!.getToken()
+                // Log and toast
+                Log.d("mylogs", token)
+            })
     }
 
     private fun push() {

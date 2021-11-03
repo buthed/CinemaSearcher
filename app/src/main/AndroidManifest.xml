@@ -19,6 +19,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CinemaSearcher">
+        <service
+            android:name=".MyFCMService"
+            android:enabled="true"
+            android:exported="true">
+
+            <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
