@@ -55,7 +55,7 @@ class MainActivity: AppCompatActivity() {
 
         val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID2).apply {
             setContentTitle("First notification")
-            setContentText("notification")
+            setContentText("Notification text")
             setSmallIcon(R.drawable.ic_kotlin_logo)
             setPriority(NotificationCompat.PRIORITY_DEFAULT)
         }
